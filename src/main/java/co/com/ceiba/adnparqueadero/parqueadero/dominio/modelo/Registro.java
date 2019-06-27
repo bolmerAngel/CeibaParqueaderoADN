@@ -10,9 +10,9 @@ public class Registro {
 
     private static final String MESAGE_PLACA_REQUERIDO= "La placa es un dato requerido.";
     private static final String MENSAGE_TIPO_VEHUCULO_REGUERIDO = "El tipo de vehiculo es un dato requerido.";
-    private static final String MENSAGE_TIPO_VEHICULO_INFORMACIÓN_INCORRECTA= "El campo tipo vehiculo no tiene valor (%S) valido.";
+    private static final String MENSAGE_TIPO_VEHICULO_INFORMACION_INCORRECTA= "El campo tipo vehiculo no tiene valor (%S) valido.";
     private static final String MESAGE_CILINDRAJE_REQUERIDO = "El campo cilindraje es requerido.";
-    private static final String MESSAGE_CILINDRAJE_INFORMACIÓN_INCORRECTA  = "El campo cilindraje debe ser numerico.";
+    private static final String MESSAGE_CILINDRAJE_INFORMACION_INCORRECTA  = "El campo cilindraje debe ser numerico.";
     private static final String MESSAGE_VALOR_WRONG_DATA  = "El campo valor debe ser numerico.";
     
     private static final String TIPO_VEHICULO_VALUE_CARRO = "CARRO";
@@ -29,10 +29,10 @@ public class Registro {
 	public Registro(Integer idvehiculo, String placa, Date diallegada, Date diasalida, Integer cilindraje, Integer valor, String tipo_vehiculo) {
 		ValidarArgumento.validarPlacaNoNull(placa, MESAGE_PLACA_REQUERIDO);
 		ValidarArgumento.validarTipovehiculoNoNull(tipovehiculo,MENSAGE_TIPO_VEHUCULO_REGUERIDO);
-		ValidarArgumento.validarTipovehiculoValorNoNull(tipovehiculo, MENSAGE_TIPO_VEHICULO_INFORMACIÓN_INCORRECTA);
+		ValidarArgumento.validarTipovehiculoValorNoNull(tipovehiculo, MENSAGE_TIPO_VEHICULO_INFORMACION_INCORRECTA);
 		
 		if(!placa.contains(TIPO_VEHICULO_VALUE_CARRO) && !placa.contains(TIPO_VEHICULO_VALUE_MOTO)) {
-			ValidatorArgument.validarPlacaWrongDate(String.format(MESSAGE_CILINDRAJE_INFORMACIÓN_INCORRECTA , placa));
+			ValidatorArgument.validarPlacaWrongDate(String.format(MESSAGE_CILINDRAJE_INFORMACION_INCORRECTA , placa));
 			
 		}
 		if(placa.equalsIgnoreCase(TIPO_VEHICULO_VALUE_MOTO)){
