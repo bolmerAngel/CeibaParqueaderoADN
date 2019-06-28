@@ -15,6 +15,7 @@ public class ServisioCrearRegistro {
 		  repositorioRegistro.Regitrar(registro);
 	  }
 	
+	 
 	 public void existe(Registro registro) {
 		  boolean existe= repositorioRegistro.ExisteRegistro(registro.getPlaca());
 		  

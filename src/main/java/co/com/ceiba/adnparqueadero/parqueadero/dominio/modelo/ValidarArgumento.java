@@ -45,7 +45,7 @@ public class ValidarArgumento {
         try {
             Integer.parseInt(value);
         } catch (NumberFormatException numberFormatException) {
-            throw new ExceptionNúmerodesplazamiento(message);
+            throw new ExcepcionCilindrajeNUmerico(message);
         }
     }
 	}
