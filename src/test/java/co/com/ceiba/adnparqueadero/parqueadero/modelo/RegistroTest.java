@@ -36,4 +36,29 @@ public class RegistroTest {
 	    }
 
 
+	 
+	 
+	 @Test
+	    public void validateTipovehiculoInformacion() {
+	        //Arrange
+		 RegistroTestDataBuilder  registroTestDataBuilder  = new RegistroTestDataBuilder();
+
+		 registroTestDataBuilder.withTipovehiculo("AUTO");
+		 
+		
+
+	        //Act - Assert
+		TestBase.assertThrows(() -> registroTestDataBuilder.build(), ExcepcionTipoInformacion.class,"El campo tipo vehiculo no tiene valor (AUTO) valido.");
+	    }
+
+	  @Test
+	    public void validardesplazamientorequerido() {
+		  RegistroTestDataBuilder registroTestDataBuilder = new RegistroTestDataBuilder();
+
+		   registroTestDataBuilder.withCilindraje(null);
+
+	        //Act - Assert
+	        TestBase.assertThrows(() -> registroTestDataBuilder.build(), ExceptionCilindraje.class,"El campo cilindraje es requerido.");
+	    }
+	 
 }

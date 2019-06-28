@@ -2,6 +2,8 @@ package co.com.ceiba.adnparqueadero.parqueadero.dominio.modelo;
 
 import co.com.ceiba.adnparqueadero.parqueadero.dominio.Excepciones.*;
 
+
+
 public class ValidarArgumento {
 
 	public ValidarArgumento() {}
@@ -25,4 +27,35 @@ public class ValidarArgumento {
 			throw new ExcepcionTipovehiculoNoNull(message);
 		}
 	}
-}
+	
+	public static void validarTipoInformacion( String message) {
+		
+		throw new ExcepcionTipoInformacion(message);
+	}
+
+	
+
+	public static void validarCilindrajeRequired(Integer value, String message) {
+        if (value == null) {
+            throw new ExceptionCilindraje(message);
+        }
+    }
+
+	public static void validadorCilindrajeValorN(String value, String message) {
+        try {
+            Integer.parseInt(value);
+        } catch (NumberFormatException numberFormatException) {
+            throw new ExceptionNúmerodesplazamiento(message);
+        }
+    }
+	}
+
+	
+	
+	
+	
+	
+	
+	
+
+
