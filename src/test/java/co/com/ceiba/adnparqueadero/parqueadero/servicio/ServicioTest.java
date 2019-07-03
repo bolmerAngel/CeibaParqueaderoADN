@@ -79,7 +79,7 @@ public class ServicioTest {
 	
 	
 	 @Test
-	    public void  VehículoExistePrueba(){
+	    public void  VehiculoExistePrueba(){
 		 RegistroTestDataBuilder registrar = new RegistroTestDataBuilder()
 	                .withTipovehiculo(MensageSistema.TIPO_VEHICULO_VALUE_CARRO);
 
@@ -190,7 +190,7 @@ public class ServicioTest {
 
 	 
 	 @Test
-	    public void  RegistrarDíaCargo() {
+	    public void  RegistrarDiaCargo() {
 	        //Arrange
 	        int valorDia = 8000;
 	        int hora = 9;
@@ -216,6 +216,8 @@ public class ServicioTest {
 	        assertEquals(valorDia,registro.getValor(),0);
 
 	    }
+	 
+	 
 	 
 	 
 	 
