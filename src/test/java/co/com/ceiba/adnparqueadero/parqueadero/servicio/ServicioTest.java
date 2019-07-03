@@ -218,7 +218,36 @@ public class ServicioTest {
 	    }
 	 
 	 
-	 
+	 @Test
+	    public void  RegistrarDiaCargaCilindrajeMaximoMotoTest() {
+	        //Arrange
+	        int valorDia = 4000;
+	        int hora = 9;
+	        int valarAdicional = 2000;
+
+	        Calendar cal = Calendar.getInstance();
+	        cal.setTime(new Date());
+
+	        cal.set(Calendar.HOUR, cal.get(Calendar.HOUR) - hora);
+
+	        RegistroTestDataBuilder registrar = new RegistroTestDataBuilder()
+	                .withTipovehiculo(MensageSistema.TIPO_VEHICULO_VALUE_MOTO)
+	                .withDiallegada(cal.getTime())
+	                .withCilindraje(600);
+
+	        Registro registro = registrar.build();
+
+	        CrearRegistro crearRegistro = new CrearRegistro(puertoRepositorioRegistro);
+	        ServicioExisteRegistro servicioExisteRegistro = new ServicioExisteRegistro(puertoRepositorioRegistro);
+	        when(puertoRepositorioRegistro.findByPlaca(registro.getPlaca())).thenReturn(registro);
+
+	        //Act
+	        servicioExisteRegistro.salida(registro.getPlaca());
+
+	        //Assert
+	        assertEquals(valorDia + valarAdicional,registro.getValor(),0);
+
+	    }
 	 
 	 
 	 
