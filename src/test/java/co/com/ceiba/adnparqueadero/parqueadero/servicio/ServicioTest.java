@@ -93,7 +93,7 @@ public class ServicioTest {
 	        try {
 	        	 crearRegistro.EntradaEstabelcida(registro);
 	        }catch (ExcepcionDuplicada ex){
-	            // Assert
+	            // Assert.
 	            assertEquals(MensageSistema.MENSAJE_YA_EXISTE_VEHICULO, ex.getMessage());
 	        }
 	    }
