@@ -48,6 +48,11 @@ public class ValidarArgumento {
             throw new ExcepcionCilindrajeNUmerico(message);
         }
     }
+
+	public static void validarLetraPlaca(String placa, String string) {
+		// TODO Auto-generated method stub
+		
+	}
 	}
 
 	

@@ -10,14 +10,11 @@ import java.util.Date;
 public class RegistroComando {
 	private Integer idvehiculo;
 	private String placa;
-	private String desplasamineto;
 	private Date diallegada;
 	private Date diasalida;
 	private Integer cilindraje;
 	private Integer valor;
 	private String tipovehiculo;
-	
-	
 	
 	
 	

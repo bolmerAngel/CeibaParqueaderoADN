@@ -10,7 +10,6 @@ public class RegistroTestDataBuilder {
 
 	private Integer idvehiculo;
 	private String placa;
-	private String desplasamineto;
 	private Date diallegada;
 	private Date diasalida;
 	private Integer cilindraje;
@@ -18,10 +17,8 @@ public class RegistroTestDataBuilder {
 	private String tipovehiculo;
 	
 	public RegistroTestDataBuilder() {
-
 		this.idvehiculo = 1;
 		this.placa = "123";
-		this.desplasamineto=null;
 		this.diallegada = new Date();
 		this.diasalida = null;
 		this.cilindraje = 500;
@@ -35,7 +32,6 @@ public class RegistroTestDataBuilder {
 	    }
 
 	  public RegistroTestDataBuilder withPlaca(String placa) {
-		  
 	        this.placa = placa;
 	        return this;
 	    }
@@ -54,12 +50,6 @@ public class RegistroTestDataBuilder {
         return this;
     }
 	
-	public RegistroTestDataBuilder withDesplasamineto(String desplasamineto) {
-        this.desplasamineto= desplasamineto;
-        return this;
-    }
-	
-	
 
 	public RegistroTestDataBuilder withValor(Integer valor) {
         this.valor= valor;
@@ -74,7 +64,7 @@ public class RegistroTestDataBuilder {
 	
 	
 	 public Registro build(){
-	        return new Registro ( idvehiculo,  placa,  diallegada, diasalida, cilindraje,  valor,  tipovehiculo,desplasamineto);
+	        return new Registro ( idvehiculo,  placa,  diallegada, diasalida, cilindraje,  valor,  tipovehiculo);
 	    }
 	
 	

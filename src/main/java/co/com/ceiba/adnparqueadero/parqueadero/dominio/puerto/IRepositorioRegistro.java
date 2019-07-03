@@ -3,19 +3,25 @@ package co.com.ceiba.adnparqueadero.parqueadero.dominio.puerto;
 import java.util.List;
 
 import co.com.ceiba.adnparqueadero.parqueadero.dominio.modelo.Registro;
+import co.com.ceiba.adnparqueadero.parqueadero.infraestructura.entida.RegistroEntida;
+
 
 
 public interface IRepositorioRegistro {
 	
-	void Regitrar(Registro registro);
+	Registro Regitrar(Registro registro);
 	
-	void Egreso(String placa);
+	Registro Egreso(String placa);
 	
 	int cantidadVehiculo(String tipovehiculo);
 	
 	List<Registro> list();
 	
-	boolean  ExisteRegistro(String placa);
+	boolean  ExisteRegistro(Registro registro);
+
+	int countVehicleType(String tipovehiculo);
+	
+	Registro findByPlaca(String placa);
 	
 	
 	

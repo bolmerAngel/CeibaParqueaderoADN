@@ -2,37 +2,54 @@ package co.com.ceiba.adnparqueadero.parqueadero.dominio.modelo;
 
 import java.util.Date;
 
+import co.com.ceiba.adnparqueadero.parqueadero.dominio.mensajes.MensageSistema;
+
+
+
 public class Registro {
+	
+	
+public  Registro(){
+		
+	}
+	
 	private static final String MESAGE_PLACA_REQUERIDO = "La placa es un dato requerido.";
 	
     private static final String MENSAGE_TIPO_VEHUCULO_REGUERIDO = "El tipo de vehiculo es un dato requerido.";
-    private static final String MENSAGE_TIPO_VEHICULO_INFORMACION_INCORRECTA= "El campo tipo vehiculo no tiene valor (%S) valido.";
+    
     private static final String MESAGE_CILINDRAJE_REQUERIDO = "El campo cilindraje es requerido.";
-    private static final String MENSAGE_CILINDRAJE_INFORMACION_INCORRECTA  = "El campo cilindraje debe ser numerico.";
+   
    // private static final String MENSAGE_VALOR_INCORECTO  = "El campo valor debe ser numerico.";
     
-    private static final String TIPO_VEHICULO_VALUE_CARRO = "CARRO";
-    private static final String TIPO_VEHICULO_VALUE_MOTO = "MOTO";
+   
+    
+    public static final String MENSAJES_PLACAS_RESTRINGIDAS_QUE_COMENZAN_CON_LA_LETRA = "A";
+    
+    
+    
+    
 
 	private Integer idvehiculo;
 	private String placa;
-	private String desplasamineto;
 	private Date diallegada;
 	private Date diasalida;
 	private Integer cilindraje;
 	private Integer valor;
 	private String tipovehiculo;
 	
-	public Registro(Integer idvehiculo, String placa, Date diallegada, Date diasalida, Integer cilindraje, Integer valor, String tipovehiculo ,String desplasamineto) {
-		ValidarArgumento.validarPlacaNoNull(placa,MESAGE_PLACA_REQUERIDO);
-		ValidarArgumento.validarTipovehiculoNoNull(tipovehiculo,MENSAGE_TIPO_VEHUCULO_REGUERIDO);
-		ValidarArgumento.validarTipovehiculoValorNoNull(tipovehiculo, MENSAGE_TIPO_VEHICULO_INFORMACION_INCORRECTA);
+	public Registro(Integer idvehiculo, String placa, Date diallegada, Date diasalida, Integer cilindraje, Integer valor, String tipovehiculo) {
 		
-		if(!tipovehiculo.contains(TIPO_VEHICULO_VALUE_CARRO) && !tipovehiculo.contains(TIPO_VEHICULO_VALUE_MOTO)) {
-			ValidarArgumento.validarTipoInformacion(String.format(MENSAGE_TIPO_VEHICULO_INFORMACION_INCORRECTA, tipovehiculo)  );
+		 ValidarArgumento.validarPlacaNoNull(placa,MESAGE_PLACA_REQUERIDO);
+		 
+		ValidarArgumento.validarTipovehiculoNoNull(tipovehiculo,MENSAGE_TIPO_VEHUCULO_REGUERIDO);
+		ValidarArgumento.validarTipovehiculoValorNoNull(tipovehiculo, MensageSistema.MENSAGE_TIPO_VEHICULO_INFORMACION_INCORRECTA);
+		//ValidarArgumento.validarLetraPlaca(placa,  MENSAJES_PLACAS_RESTRINGIDAS_QUE_COMENZAN_CON_LA_LETRA = "A");
+		
+		if(!tipovehiculo.contains(MensageSistema.TIPO_VEHICULO_VALUE_CARRO) && !tipovehiculo.contains(MensageSistema.TIPO_VEHICULO_VALUE_MOTO)) {
+			ValidarArgumento.validarTipoInformacion(String.format(MensageSistema.MENSAGE_TIPO_VEHICULO_INFORMACION_INCORRECTA, tipovehiculo)  );
 		
 		}
-		if(!tipovehiculo.equalsIgnoreCase(TIPO_VEHICULO_VALUE_MOTO)){
+		if(!tipovehiculo.equalsIgnoreCase(MensageSistema.TIPO_VEHICULO_VALUE_MOTO)){
 			ValidarArgumento.validarCilindrajeRequired(cilindraje, MESAGE_CILINDRAJE_REQUERIDO );
 			
 			
@@ -40,21 +57,22 @@ public class Registro {
 		
 		
 		this.idvehiculo = idvehiculo;
-		this.placa = placa;
+		this.placa = placa.toUpperCase();
 		this.diallegada = diallegada;
 		this.diasalida= diasalida;
 		this.cilindraje = cilindraje;
 		this.valor = valor;
 		this.tipovehiculo = tipovehiculo;
-		this.desplasamineto=desplasamineto;
 		
 	}
-		
 	
+		
+
+
 	/**
 	 * @return the id_vehiculo
 	 */
-	public long getIdvehiculo() {
+	public Integer  getIdvehiculo() {
 		return idvehiculo;
 	}
 	/**
@@ -137,22 +155,6 @@ public class Registro {
 	 */
 	public void setTipovehiculo(String tipo_vehiculo) {
 		this.tipovehiculo = tipo_vehiculo;
-	}
-
-
-	/**
-	 * @return the desplasamineto
-	 */
-	public String getDesplasamineto() {
-		return desplasamineto;
-	}
-
-
-	/**
-	 * @param desplasamineto the desplasamineto to set
-	 */
-	public void setDesplasamineto(String desplasamineto) {
-		this.desplasamineto = desplasamineto;
 	}
 	
 }
