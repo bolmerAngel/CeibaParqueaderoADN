@@ -19,8 +19,8 @@ public class CargarCarro implements CobroEstacionamiento {
 	    	 double milisegundo = (registro.getDiasalida().getTime() - registro.getDiallegada().getTime());
 	         double hora = (milisegundo/MILISEGUNDO_POR_HORA);
 	         double minuto = (milisegundo/ MILISEGUNDO_POR_MINUTO);
-	         long totalHora = (long) Math.round(hora);
-	         long totalMinuto = (long) Math.round(minuto);
+	         long totalHora =  Math.round(hora);
+	         long totalMinuto = Math.round(minuto);
 	         int totalDia = (int)  totalHora /  HORAS_DEL_DIA ;
 	         int  totalHoranuevadia = (int) totalHora %  HORAS_DEL_DIA ;
 	    	 
@@ -34,7 +34,7 @@ public class CargarCarro implements CobroEstacionamiento {
 	         }else if(totalHoranuevadia == 0 || (totalHoranuevadia >= HORA_EFECTIVO_POR_DIA && totalHoranuevadia< HORAS_DEL_DIA)){
 	             valor = (VALOR_POR_DIA  * (totalDia == 0 ? 1:totalDia));
 	         }else{
-	             valor = ((VALOR_POR_DIA  * totalDia) + (totalHoranuevadia * VALOR_POR_DIA ));
+	             valor = ((VALOR_POR_DIA  * totalDia) + (totalHoranuevadia * VALOR_POR_HORA ));
 	         }
 	         registro.setValor(valor);
 	    }

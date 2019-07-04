@@ -62,14 +62,4 @@ public class RegistroTest {
 	        TestBase.assertThrows(() -> registroTestDataBuilder.build(), ExceptionCilindraje.class,"El campo cilindraje es requerido.");
 	    }
 	 
-	  @Test
-	    public void validarNumeroCilindraje() {
-	        //Arrange
-	        RegistroTestDataBuilder registroTestDataBuilder = new RegistroTestDataBuilder();
-	        registroTestDataBuilder.withTipovehiculo("moto");
-	        registroTestDataBuilder.withCilindraje(0);
-
-	        //Act - Assert
-	        TestBase.assertThrows(() -> registroTestDataBuilder.build(), ExcepcionCilindrajeNUmerico.class, MensageSistema.MENSAGE_CILINDRAJE_INFORMACION_INCORRECTA);
-	    }
 }

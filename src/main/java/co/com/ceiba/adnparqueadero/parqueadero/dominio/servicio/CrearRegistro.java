@@ -20,12 +20,10 @@ public class CrearRegistro {
 	}
 
 	public Registro EntradaEstabelcida(Registro registro) {
-		System.out.println("HOLAAAAAAAAAAAAA" + registro.getPlaca() + " " + registro.getTipovehiculo() + " "
-				+ registro.getDiallegada());
 		validacionAnterior(registro);
 		validacinCantidadTipoVehiculo(registro.getTipovehiculo());
 		validarLicenciaLugarFechaDia(registro.getPlaca(), registro.getDiallegada());
-	return registroRepositorio.Regitrar(registro);
+	    return registroRepositorio.Regitrar(registro);
 
 	}
 
@@ -58,7 +56,7 @@ public class CrearRegistro {
 
 	private void validacionAnterior(Registro registro) {
 		boolean exists = registroRepositorio.ExisteRegistro(registro);
-		if (ExisteRegistro) {
+		if (exists) {
 			throw new ExcepcionDuplicada(MensageSistema.MENSAJE_YA_EXISTE_VEHICULO);
 		}
 	}

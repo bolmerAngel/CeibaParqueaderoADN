@@ -14,22 +14,20 @@ import co.com.ceiba.adnparqueadero.parqueadero.infraestructura.entida.RegistroEn
 @Component
 public class RegistroMapeo {
 	
-	private RegistroEntida registroEntida;
-
-	  public Registro convertToDomain(RegistroEntida registroentida){
+	  public Registro convertToDomain(RegistroEntida registroEntida){
 		  Registro registro;
 
-	        if( registroentida != null){
+	        if( registroEntida == null){
 	        	registro = null;
-	        }
-	        else{
-	        	registro =new Registro(registroEntida.getIdvehiculo(),registroEntida.getPlaca(),registroEntida.getDiallegada(),
-	        			registroEntida.getDiasalida(),registroEntida.getCilindraje(), registroEntida.getValor(),registroEntida.getTipovehiculo());
+	        } else {
+	        	registro = new Registro(registroEntida.getIdvehiculo(),registroEntida.getPlaca(), registroEntida.getDiallegada(),
+	        			registroEntida.getDiasalida(), registroEntida.getCilindraje(), registroEntida.getValor(), registroEntida.getTipovehiculo());
 	        }
 
 	        return registro;
 	    }
-	  public static RegistroEntida convertToEntity(Registro registro){
+	  
+	  public RegistroEntida convertToEntity(Registro registro){
 		  RegistroEntida registroEntida;
 	        if(registro == null){
 	        	registroEntida = null;

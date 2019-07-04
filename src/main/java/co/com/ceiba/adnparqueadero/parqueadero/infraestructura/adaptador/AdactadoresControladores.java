@@ -32,12 +32,6 @@ public class AdactadoresControladores implements IRepositorioRegistro {
 	}
 
 	@Override
-	public Registro Egreso(String placa) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public int cantidadVehiculo(String tipovehiculo) {
 		return registroEntidadRepositorio.tipodeVehciculo(tipovehiculo);
 	}

@@ -27,11 +27,11 @@ public class ServicioExisteRegistro {
 	        if (registro == null) {
 	            throw new ExcepcionNoExisteRegistro(MensageSistema.MESAJE_VEHICULO_NO_ENCONTRADO);
 	        }
-	        chargePark(registro);
-	        registroRepositorio.ExisteRegistro(registro);
+	        Cobrar(registro);
+	        registroRepositorio.Regitrar(registro);
 	    }
 	 
-	 private void chargePark(Registro registro) {
+	 private void Cobrar(Registro registro) {
 		 
 		  CargaFabrica cargarFabrica;
 	        registro.setDiasalida(new Date());

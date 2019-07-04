@@ -41,13 +41,6 @@ public class ValidarArgumento {
         }
     }
 
-	public static void validadorCilindrajeValorN(String value, String message) {
-        try {
-            Integer.parseInt(value);
-        } catch (NumberFormatException numberFormatException) {
-            throw new ExcepcionCilindrajeNUmerico(message);
-        }
-    }
 
 	public static void validarLetraPlaca(String placa, String string) {
 		// TODO Auto-generated method stub

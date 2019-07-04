@@ -52,7 +52,6 @@ public  Registro(){
 		if(!tipovehiculo.equalsIgnoreCase(MensageSistema.TIPO_VEHICULO_VALUE_MOTO)){
 			ValidarArgumento.validarCilindrajeRequired(cilindraje, MESAGE_CILINDRAJE_REQUERIDO );
 			
-			
 		}
 		
 		

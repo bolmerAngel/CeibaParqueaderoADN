@@ -11,8 +11,6 @@ public interface IRepositorioRegistro {
 	
 	Registro Regitrar(Registro registro);
 	
-	Registro Egreso(String placa);
-	
 	int cantidadVehiculo(String tipovehiculo);
 	
 	List<Registro> list();

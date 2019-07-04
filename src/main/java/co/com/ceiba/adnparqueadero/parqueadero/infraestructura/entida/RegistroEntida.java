@@ -14,7 +14,7 @@ import lombok.Getter;
 
 
 @Entity
-@Table(name = "Registro")
+@Table(name = "RegistroEntida")
 @Getter
 
 
@@ -27,7 +27,6 @@ public class RegistroEntida {
 	
 	 public RegistroEntida( Integer idvehiculo, String placa, Date diallegada, Date diasalida,
 			Integer cilindraje, Integer valor, String tipovehiculo) {
-		super();
 		this.idvehiculo = idvehiculo;
 		this.placa = placa;
 		this.diallegada = diallegada;

@@ -36,7 +36,7 @@ public class CargarMoto extends CargarCarro {
 	         }else if(totalHoranuevadia == 0 || (totalHoranuevadia >= HORA_EFECTIVO_POR_DIA && totalHoranuevadia< HORAS_DEL_DIA)){
 	             valor = (VALOR_POR_DIA  * (totalDia == 0 ? 1:totalDia));
 	         }else{
-	             valor = ((VALOR_POR_DIA  * totalDia) + (totalHoranuevadia * VALOR_POR_DIA ));
+	             valor = ((VALOR_POR_DIA  * totalDia) + (totalHoranuevadia * VALOR_POR_HORA ));
 	         }
 	         if(Integer.valueOf(registro.getCilindraje()) >  CILINDRAJE_MAXIMO ){
 	             valor = valor + VALOR_ADICIONAL;

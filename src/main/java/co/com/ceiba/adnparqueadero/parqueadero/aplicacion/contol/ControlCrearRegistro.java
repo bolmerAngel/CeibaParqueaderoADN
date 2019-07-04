@@ -14,12 +14,12 @@ public class ControlCrearRegistro {
 		this.crearRegistro = crearRegistro;
 	}
 
-	public void EntradaEstabelcida(RegistroComando registroComando) {
+	public Registro EntradaEstabelcida(RegistroComando registroComando) {
 		Registro registro = new Registro(registroComando.getIdvehiculo(), registroComando.getPlaca(),
 				registroComando.getDiallegada(), registroComando.getDiasalida(), registroComando.getCilindraje(),
 				registroComando.getValor(), registroComando.getTipovehiculo());
 		registro.setDiallegada(new Date());
-		this.crearRegistro.EntradaEstabelcida(registro);
+		return this.crearRegistro.EntradaEstabelcida(registro);
 	}
 
 }

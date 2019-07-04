@@ -26,6 +26,7 @@ import co.com.ceiba.adnparqueadero.parqueadero.testdatabuilder.RegistroTestDataB
 
 
 
+
 public class ServicioTest {
 	
 	private IRepositorioRegistro  puertoRepositorioRegistro;
@@ -249,8 +250,107 @@ public class ServicioTest {
 
 	    }
 	 
+	  @Test
+	    public void RegistraDiaCargaMotoPrueba() {
+	        //Arrange
+	        int valorDia = 4000;
+	        int hora = 9;
+
+	        Calendar cal = Calendar.getInstance();
+	        cal.setTime(new Date());
+
+	        cal.set(Calendar.HOUR, cal.get(Calendar.HOUR) - hora);
+
+	        RegistroTestDataBuilder registrar = new RegistroTestDataBuilder()
+	        		.withTipovehiculo(MensageSistema.TIPO_VEHICULO_VALUE_MOTO)
+	                .withDiallegada(cal.getTime())
+	                .withCilindraje(500);
+
+	        Registro registro = registrar.build();
+
+	        CrearRegistro crearRegistro = new CrearRegistro(puertoRepositorioRegistro);
+	        ServicioExisteRegistro servicioExisteRegistro = new ServicioExisteRegistro(puertoRepositorioRegistro);
+	        when(puertoRepositorioRegistro.findByPlaca(registro.getPlaca())).thenReturn(registro);
+
+	        //Act
+	        servicioExisteRegistro.salida(registro.getPlaca());
+
+	        //Assert
+	        assertEquals(valorDia,registro.getValor(),0);
+
+	    }
 	 
 	 
+	 
+	 
+	  @Test
+	    public void  RegistrarDiaMasHoraCarro() {
+	        //Arrange
+	        int valorDia = 8000;
+	        int valorHora = 1000;
+	        int hora = 27;
+	        Calendar cal = Calendar.getInstance();
+	        cal.setTime(new Date());
+
+	        cal.set(Calendar.HOUR, cal.get(Calendar.HOUR) - hora);
+
+	        RegistroTestDataBuilder registrar = new RegistroTestDataBuilder()
+	                .withTipovehiculo(MensageSistema.TIPO_VEHICULO_VALUE_CARRO)
+	                .withDiallegada(cal.getTime());
+
+	        Registro registro = registrar.build();
+
+	        CrearRegistro crearRegistro = new CrearRegistro(puertoRepositorioRegistro);
+	        ServicioExisteRegistro servicioExisteRegistro = new ServicioExisteRegistro(puertoRepositorioRegistro);
+	        when(puertoRepositorioRegistro.findByPlaca(registro.getPlaca())).thenReturn(registro);
+
+	        //Act
+	        servicioExisteRegistro.salida(registro.getPlaca());
+
+	        //Assert
+	       
+	        assertEquals((valorHora * 3) + valorDia,registro.getValor(),0);
+
+	    }
+	  
+	  
+
+	    @Test
+	    public void RegistrarDiaMasHoraMoto() {
+	        //Arrange
+	        int valorDia = 4000;
+	        int valorHora = 500;
+	        int hour = 27;
+
+	        Calendar cal = Calendar.getInstance();
+	        cal.setTime(new Date());
+
+	        cal.set(Calendar.HOUR, cal.get(Calendar.HOUR) - hour);
+
+	        RegistroTestDataBuilder registrar = new RegistroTestDataBuilder()
+	                .withTipovehiculo(MensageSistema.TIPO_VEHICULO_VALUE_MOTO)
+	                .withDiallegada(cal.getTime())
+	                .withCilindraje(400);
+
+	        Registro registro = registrar.build();
+
+	        CrearRegistro crearRegistro = new CrearRegistro(puertoRepositorioRegistro);
+	        ServicioExisteRegistro servicioExisteRegistro = new ServicioExisteRegistro(puertoRepositorioRegistro);
+	        when(puertoRepositorioRegistro.findByPlaca(registro.getPlaca())).thenReturn(registro);
+
+	        //Act
+	        servicioExisteRegistro.salida(registro.getPlaca());
+
+	        //Assert
+	        assertEquals((valorHora * 3) + valorDia,registro.getValor(),0);
+
+	    }
+	  
+	    
+	    
+	    
+	    
+	  
 	
 	
 	
