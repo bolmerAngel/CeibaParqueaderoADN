@@ -23,7 +23,7 @@ public class RegistroTestDataBuilder {
 		this.diasalida = null;
 		this.cilindraje = 500;
 		this.valor = 0;
-		this.tipovehiculo = "CARRO";
+		this.tipovehiculo = "MOTO";
 	}
 	
 	  public RegistroTestDataBuilder withID(Integer idvehiculo) {

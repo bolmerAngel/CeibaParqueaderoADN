@@ -43,13 +43,13 @@ public  Registro(){
 		 
 		ValidarArgumento.validarTipovehiculoNoNull(tipovehiculo,MENSAGE_TIPO_VEHUCULO_REGUERIDO);
 		ValidarArgumento.validarTipovehiculoValorNoNull(tipovehiculo, MensageSistema.MENSAGE_TIPO_VEHICULO_INFORMACION_INCORRECTA);
-		//ValidarArgumento.validarLetraPlaca(placa,  MENSAJES_PLACAS_RESTRINGIDAS_QUE_COMENZAN_CON_LA_LETRA = "A");
 		
 		if(!tipovehiculo.contains(MensageSistema.TIPO_VEHICULO_VALUE_CARRO) && !tipovehiculo.contains(MensageSistema.TIPO_VEHICULO_VALUE_MOTO)) {
 			ValidarArgumento.validarTipoInformacion(String.format(MensageSistema.MENSAGE_TIPO_VEHICULO_INFORMACION_INCORRECTA, tipovehiculo)  );
 		
 		}
-		if(!tipovehiculo.equalsIgnoreCase(MensageSistema.TIPO_VEHICULO_VALUE_MOTO)){
+		
+		if(tipovehiculo.equalsIgnoreCase(MensageSistema.TIPO_VEHICULO_VALUE_MOTO)){
 			ValidarArgumento.validarCilindrajeRequired(cilindraje, MESAGE_CILINDRAJE_REQUERIDO );
 			
 		}

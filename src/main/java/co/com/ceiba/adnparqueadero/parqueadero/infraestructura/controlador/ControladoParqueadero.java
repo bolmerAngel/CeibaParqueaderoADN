@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -26,7 +27,6 @@ import co.com.ceiba.adnparqueadero.parqueadero.dominio.servicio.ServicioListRegi
 
 @RestController
 @RequestMapping("/Parqueadero")
-@CrossOrigin("*")
 public class ControladoParqueadero {
 	
 	private ControlCrearRegistro crearRegistro;
@@ -41,7 +41,7 @@ public class ControladoParqueadero {
 		this.servicioListRegistro = servicioListRegistro;
 	}
 
-	@RequestMapping(method = RequestMethod.GET)
+	@GetMapping
 	public List<Registro> List() {
 		return this.servicioListRegistro.listRegister();
 
