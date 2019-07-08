@@ -19,7 +19,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import co.com.ceiba.adnparqueadero.parqueadero.aplicacion.comando.RegistroComando;
-import co.com.ceiba.adnparqueadero.parqueadero.infraestructura.controlador.ControladoParqueadero;
+import co.com.ceiba.adnparqueadero.parqueadero.infraestructura.controlador.ControladorParqueadero;
 import co.com.ceiba.adnparqueadero.parqueadero.infraestructura.excepcion.ManejadorExcepcion;
 import co.com.ceiba.adnparqueadero.parqueadero.testdatabuilder.RegistroComandoTestDataBuilder;
 
@@ -34,19 +34,20 @@ public class ControladorParqueaderoTest {
 	@Autowired
 	private ManejadorExcepcion manejadorExcepcion;
 	@Autowired
-	private ControladoParqueadero controladoParqueadero;
+	private ControladorParqueadero controladorParqueadero;
 	
 	private MockMvc mockMvc;
+	private static final  String REQUESTMAPPING = "/parqueadero";
 	
 	 @Before
 	    public void setupMock() {
-	        mockMvc = MockMvcBuilders.standaloneSetup(controladoParqueadero, manejadorExcepcion).build();
+	        mockMvc = MockMvcBuilders.standaloneSetup(controladorParqueadero, manejadorExcepcion).build();
 	    }
 
 	    @Test
 	    public  void listaRegistoTest() throws Exception{
 	        // Arrange , Act y Assert
-	      mockMvc.perform(get("/Parqueadero").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
+	      mockMvc.perform(get(REQUESTMAPPING).contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
 	    }
 	   
 	    @Test
@@ -56,7 +57,7 @@ public class ControladorParqueaderoTest {
 	    	RegistroComando registroComando =registroComandoTestDataBuilder.build();
 
 	        // Act y Assert
-	        mockMvc.perform(post("/Parqueadero").contentType(MediaType.APPLICATION_JSON)
+	        mockMvc.perform(post(REQUESTMAPPING).contentType(MediaType.APPLICATION_JSON)
 	                .content(jsonToString(registroComando))).andExpect(status().isOk());
 
 	    }
@@ -71,12 +72,12 @@ public class ControladorParqueaderoTest {
 		    	RegistroComando registroComando = registroComandoTestDataBuilder.build();
 
 		        // Act y Assert
-		        mockMvc.perform(post("/Parqueadero").contentType(MediaType.APPLICATION_JSON)
+		        mockMvc.perform(post(REQUESTMAPPING).contentType(MediaType.APPLICATION_JSON)
 		                .content(jsonToString(registroComando))).andExpect(status().isOk());
 			   
 		        
 		        // Act y Assert
-		        mockMvc.perform(put("/Parqueadero/" + placa).contentType(MediaType.APPLICATION_JSON))
+		        mockMvc.perform(put(REQUESTMAPPING+"/" + placa).contentType(MediaType.APPLICATION_JSON))
 		                .andExpect(status().isOk());
 		    }
 

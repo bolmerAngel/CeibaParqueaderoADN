@@ -4,9 +4,9 @@ package co.com.ceiba.adnparqueadero.parqueadero.modelo;
 
 import org.junit.Test;
 
-import co.com.ceiba.adnparqueadero.parqueadero.dominio.Excepciones.*;
-import co.com.ceiba.adnparqueadero.parqueadero.dominio.mensajes.MensageSistema;
-import co.com.ceiba.adnparqueadero.parqueadero.dominio.modelo.Registro;
+import co.com.ceiba.adnparqueadero.parqueadero.dominio.excepciones.*;
+import co.com.ceiba.adnparqueadero.parqueadero.dominio.modelo.RegistroVehiculo;
+import co.com.ceiba.adnparqueadero.parqueadero.dominio.protocoloRespuestasSistemas.RespuestaSistema;
 import co.com.ceiba.adnparqueadero.parqueadero.testBase.*;
 import co.com.ceiba.adnparqueadero.parqueadero.testdatabuilder.*;
 

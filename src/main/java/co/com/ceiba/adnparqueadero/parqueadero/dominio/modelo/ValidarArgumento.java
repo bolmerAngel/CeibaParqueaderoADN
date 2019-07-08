@@ -1,6 +1,6 @@
 package co.com.ceiba.adnparqueadero.parqueadero.dominio.modelo;
 
-import co.com.ceiba.adnparqueadero.parqueadero.dominio.Excepciones.*;
+import co.com.ceiba.adnparqueadero.parqueadero.dominio.excepciones.*;
 
 
 

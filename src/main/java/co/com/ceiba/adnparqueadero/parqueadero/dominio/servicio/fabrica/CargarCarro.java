@@ -1,6 +1,6 @@
 package co.com.ceiba.adnparqueadero.parqueadero.dominio.servicio.fabrica;
 
-import co.com.ceiba.adnparqueadero.parqueadero.dominio.modelo.Registro;
+import co.com.ceiba.adnparqueadero.parqueadero.dominio.modelo.RegistroVehiculo;
 
 public class CargarCarro implements CobroEstacionamiento {
 
@@ -14,9 +14,9 @@ public class CargarCarro implements CobroEstacionamiento {
 	    
 	    
 	    @Override
-	    public void establecerCarga(Registro registro) {
+	    public void establecerCarga(RegistroVehiculo registroVehiculo) {
 	    	Integer valor = 0;
-	    	 double milisegundo = (registro.getDiasalida().getTime() - registro.getDiallegada().getTime());
+	    	 double milisegundo = (registroVehiculo.getDiasalida().getTime() - registroVehiculo.getDiallegada().getTime());
 	         double hora = (milisegundo/MILISEGUNDO_POR_HORA);
 	         double minuto = (milisegundo/ MILISEGUNDO_POR_MINUTO);
 	         long totalHora =  Math.round(hora);
@@ -36,6 +36,6 @@ public class CargarCarro implements CobroEstacionamiento {
 	         }else{
 	             valor = ((VALOR_POR_DIA  * totalDia) + (totalHoranuevadia * VALOR_POR_HORA ));
 	         }
-	         registro.setValor(valor);
+	         registroVehiculo.setValor(valor);
 	    }
 }

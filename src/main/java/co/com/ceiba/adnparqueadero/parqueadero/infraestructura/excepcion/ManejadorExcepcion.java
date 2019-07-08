@@ -9,13 +9,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import co.com.ceiba.adnparqueadero.parqueadero.dominio.Excepciones.ExcepcionCilindrajeNUmerico;
-import co.com.ceiba.adnparqueadero.parqueadero.dominio.Excepciones.ExcepcionDuplicada;
-import co.com.ceiba.adnparqueadero.parqueadero.dominio.Excepciones.ExcepcionPlaca;
-import co.com.ceiba.adnparqueadero.parqueadero.dominio.Excepciones.ExcepcionTipoInformacion;
-import co.com.ceiba.adnparqueadero.parqueadero.dominio.Excepciones.ExcepcionTipovehiculoNoNull;
-import co.com.ceiba.adnparqueadero.parqueadero.dominio.Excepciones.ExcepcionTipovehiculoValorNoNull;
-import co.com.ceiba.adnparqueadero.parqueadero.dominio.Excepciones.ExceptionCilindraje;
+import co.com.ceiba.adnparqueadero.parqueadero.dominio.excepciones.ExcepcionCilindrajeNUmerico;
+import co.com.ceiba.adnparqueadero.parqueadero.dominio.excepciones.ExcepcionDuplicada;
+import co.com.ceiba.adnparqueadero.parqueadero.dominio.excepciones.ExcepcionPlaca;
+import co.com.ceiba.adnparqueadero.parqueadero.dominio.excepciones.ExcepcionTipovehiculoNoNull;
+import co.com.ceiba.adnparqueadero.parqueadero.dominio.excepciones.ExcepcionTipovehiculoValorNoNull;
+import co.com.ceiba.adnparqueadero.parqueadero.dominio.excepciones.ExceptionCilindraje;
 
 
 @ControllerAdvice
@@ -54,8 +53,7 @@ public class ManejadorExcepcion {
 	            responde = new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
 	        }
 	    	 
-			return null;
-	    	
+			return responde;
 	    	
 	    }
 

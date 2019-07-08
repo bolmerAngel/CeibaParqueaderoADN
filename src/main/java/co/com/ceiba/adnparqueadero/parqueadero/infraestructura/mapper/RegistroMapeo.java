@@ -1,47 +1,45 @@
 package co.com.ceiba.adnparqueadero.parqueadero.infraestructura.mapper;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
-import co.com.ceiba.adnparqueadero.parqueadero.dominio.modelo.Registro;
+import co.com.ceiba.adnparqueadero.parqueadero.dominio.modelo.RegistroVehiculo;
 import co.com.ceiba.adnparqueadero.parqueadero.infraestructura.entida.RegistroEntida;
 
 
 @Component
 public class RegistroMapeo {
 	
-	  public Registro convertToDomain(RegistroEntida registroEntida){
-		  Registro registro;
+	  public RegistroVehiculo convertToDomain(RegistroEntida registroEntida){
+		  RegistroVehiculo registroVehiculo;
 
 	        if( registroEntida == null){
-	        	registro = null;
+	        	registroVehiculo = null;
 	        } else {
-	        	registro = new Registro(registroEntida.getIdvehiculo(),registroEntida.getPlaca(), registroEntida.getDiallegada(),
+	        	registroVehiculo = new RegistroVehiculo(registroEntida.getIdvehiculo(),registroEntida.getPlaca(), registroEntida.getDiallegada(),
 	        			registroEntida.getDiasalida(), registroEntida.getCilindraje(), registroEntida.getValor(), registroEntida.getTipovehiculo());
 	        }
 
-	        return registro;
+	        return registroVehiculo;
 	    }
 	  
-	  public RegistroEntida convertToEntity(Registro registro){
+	  public RegistroEntida convertToEntity(RegistroVehiculo registroVehiculo){
 		  RegistroEntida registroEntida;
-	        if(registro == null){
+	        if(registroVehiculo == null){
 	        	registroEntida = null;
 	        }else{
-	        	registroEntida = new RegistroEntida(registro.getIdvehiculo(), registro.getPlaca(), registro.getDiallegada(), 
-	        			registro.getDiasalida(),registro.getCilindraje(), registro.getValor(),registro.getTipovehiculo());
+	        	registroEntida = new RegistroEntida(registroVehiculo.getIdvehiculo(), registroVehiculo.getPlaca(), registroVehiculo.getDiallegada(), 
+	        			registroVehiculo.getDiasalida(),registroVehiculo.getCilindraje(), registroVehiculo.getValor(),registroVehiculo.getTipovehiculo());
 	        }
 	        return registroEntida;
 	    }
 	  
-	  public List<Registro> listConvertToDomain(List<RegistroEntida> ListRegistroEntida) {
-	        final List<Registro> listRegistro = new ArrayList<>();
+	  public List<RegistroVehiculo> listConvertToDomain(List<RegistroEntida> ListRegistroEntida) {
+	        final List<RegistroVehiculo> listRegistro = new ArrayList<>();
 	        
-	        ListRegistroEntida.forEach(registroEntida -> listRegistro.add(new Registro(registroEntida.getIdvehiculo(),registroEntida.getPlaca(),registroEntida.getDiallegada(),
+	        ListRegistroEntida.forEach(registroEntida -> listRegistro.add(new RegistroVehiculo(registroEntida.getIdvehiculo(),registroEntida.getPlaca(),registroEntida.getDiallegada(),
         			registroEntida.getDiasalida(),registroEntida.getCilindraje(), registroEntida.getValor(),registroEntida.getTipovehiculo())));
 	        
 			return listRegistro;

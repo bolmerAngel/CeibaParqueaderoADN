@@ -11,15 +11,15 @@ import java.util.Date;
 import org.junit.Before;
 import org.junit.Test;
 
-import co.com.ceiba.adnparqueadero.parqueadero.dominio.Excepciones.ExcepcionDuplicada;
-import co.com.ceiba.adnparqueadero.parqueadero.dominio.Excepciones.ExcepcionLicenciaLugarFecha;
-import co.com.ceiba.adnparqueadero.parqueadero.dominio.Excepciones.ExcepcionNoEspacioTipoVehiculo;
-import co.com.ceiba.adnparqueadero.parqueadero.dominio.Excepciones.ExcepcionNoExisteRegistro;
-import co.com.ceiba.adnparqueadero.parqueadero.dominio.mensajes.MensageSistema;
-import co.com.ceiba.adnparqueadero.parqueadero.dominio.modelo.Registro;
-import co.com.ceiba.adnparqueadero.parqueadero.dominio.puerto.IRepositorioRegistro;
-import co.com.ceiba.adnparqueadero.parqueadero.dominio.servicio.CrearRegistro;
-import co.com.ceiba.adnparqueadero.parqueadero.dominio.servicio.ServicioExisteRegistro;
+import co.com.ceiba.adnparqueadero.parqueadero.dominio.excepciones.ExcepcionDuplicada;
+import co.com.ceiba.adnparqueadero.parqueadero.dominio.excepciones.ExcepcionLicenciaLugarFecha;
+import co.com.ceiba.adnparqueadero.parqueadero.dominio.excepciones.ExcepcionNoEspacioTipoVehiculo;
+import co.com.ceiba.adnparqueadero.parqueadero.dominio.excepciones.ExcepcionNoExisteRegistro;
+import co.com.ceiba.adnparqueadero.parqueadero.dominio.modelo.RegistroVehiculo;
+import co.com.ceiba.adnparqueadero.parqueadero.dominio.protocoloRespuestasSistemas.RespuestaSistema;
+import co.com.ceiba.adnparqueadero.parqueadero.dominio.puerto.PuertoRepositorioRegistro;
+import co.com.ceiba.adnparqueadero.parqueadero.dominio.servicio.ServicioCrearRegistro;
+import co.com.ceiba.adnparqueadero.parqueadero.dominio.servicio.ServicioSalidaRegistro;
 import co.com.ceiba.adnparqueadero.parqueadero.testdatabuilder.RegistroTestDataBuilder;
 
 
@@ -29,29 +29,29 @@ import co.com.ceiba.adnparqueadero.parqueadero.testdatabuilder.RegistroTestDataB
 
 public class ServicioTest {
 	
-	private IRepositorioRegistro  puertoRepositorioRegistro;
+	private PuertoRepositorioRegistro  puertoRepositorioRegistro;
 
 	@Before
 	public void InicioMocks() {
-		puertoRepositorioRegistro = mock(IRepositorioRegistro.class);
+		puertoRepositorioRegistro = mock(PuertoRepositorioRegistro.class);
 	}
 	
 	 @Test
 	 public void  RegistroCarroTest() {
 		 RegistroTestDataBuilder registrar = new RegistroTestDataBuilder()
-	                .withTipovehiculo(MensageSistema.TIPO_VEHICULO_VALUE_CARRO);
+	                .withTipovehiculo(RespuestaSistema.TIPO_VEHICULO_VALUE_CARRO);
 		 
-		 Registro registro = registrar.build();
+		 RegistroVehiculo registroVehiculo = registrar.build();
 
-		 CrearRegistro  crearRegistro  = new CrearRegistro (puertoRepositorioRegistro);
+		 ServicioCrearRegistro  servicioCrearRegistro  = new ServicioCrearRegistro (puertoRepositorioRegistro);
 
-	     when(puertoRepositorioRegistro.Regitrar(registro)).thenReturn(registro);
+	     when(puertoRepositorioRegistro.Regitrar(registroVehiculo)).thenReturn(registroVehiculo);
 
 	        //Act
-	        Registro registerCopia = crearRegistro.EntradaEstabelcida(registro);
+	        RegistroVehiculo registerCopia = servicioCrearRegistro.EntradaEstabelcida(registroVehiculo);
 
 	        //Assert
-	        assertEquals(registerCopia.getIdvehiculo(),registro.getIdvehiculo());
+	        assertEquals(registerCopia.getIdvehiculo(),registroVehiculo.getIdvehiculo());
 
 		 
 	 }
@@ -61,41 +61,41 @@ public class ServicioTest {
 	    public void  RegistroMotoTest(){
 	        //Arrange
 		 RegistroTestDataBuilder registrar = new RegistroTestDataBuilder()
-				 .withTipovehiculo(MensageSistema.TIPO_VEHICULO_VALUE_MOTO);
+				 .withTipovehiculo(RespuestaSistema.TIPO_VEHICULO_VALUE_MOTO);
 		 			
 		 
 
-	        Registro registro = registrar.build();
+	        RegistroVehiculo registroVehiculo = registrar.build();
 
-	        CrearRegistro crearRegistro = new CrearRegistro(puertoRepositorioRegistro);
+	        ServicioCrearRegistro servicioCrearRegistro = new ServicioCrearRegistro(puertoRepositorioRegistro);
 
-	        when(puertoRepositorioRegistro.Regitrar(registro)).thenReturn(registro);
+	        when(puertoRepositorioRegistro.Regitrar(registroVehiculo)).thenReturn(registroVehiculo);
 
 	        //Act
-	        Registro registerCopia = crearRegistro.EntradaEstabelcida(registro);
+	        RegistroVehiculo registerCopia = servicioCrearRegistro.EntradaEstabelcida(registroVehiculo);
 
 	        //Assert
-	        assertEquals(registerCopia.getIdvehiculo(),registro.getIdvehiculo());
+	        assertEquals(registerCopia.getIdvehiculo(),registroVehiculo.getIdvehiculo());
 	    }
 	
 	
 	 @Test
 	    public void  VehiculoExistePrueba(){
 		 RegistroTestDataBuilder registrar = new RegistroTestDataBuilder()
-	                .withTipovehiculo(MensageSistema.TIPO_VEHICULO_VALUE_CARRO);
+	                .withTipovehiculo(RespuestaSistema.TIPO_VEHICULO_VALUE_CARRO);
 
-	        Registro registro = registrar.build();
+	        RegistroVehiculo registroVehiculo = registrar.build();
 
-	        CrearRegistro crearRegistro = new CrearRegistro(puertoRepositorioRegistro);
+	        ServicioCrearRegistro servicioCrearRegistro = new ServicioCrearRegistro(puertoRepositorioRegistro);
 
-	        when(puertoRepositorioRegistro.Regitrar(registro)).thenReturn(registro);
+	        when(puertoRepositorioRegistro.Regitrar(registroVehiculo)).thenReturn(registroVehiculo);
 
 	        //Act
 	        try {
-	        	 crearRegistro.EntradaEstabelcida(registro);
+	        	 servicioCrearRegistro.EntradaEstabelcida(registroVehiculo);
 	        }catch (ExcepcionDuplicada ex){
 	            // Assert.
-	            assertEquals(MensageSistema.MENSAJE_YA_EXISTE_VEHICULO, ex.getMessage());
+	            assertEquals(RespuestaSistema.MENSAJE_YA_EXISTE_VEHICULO, ex.getMessage());
 	        }
 	    }
 
@@ -113,20 +113,20 @@ public class ServicioTest {
 	        cal.set(Calendar.HOUR, cal.get(Calendar.HOUR) - hora);
 
 	        RegistroTestDataBuilder registrar = new RegistroTestDataBuilder()
-	                .withTipovehiculo(MensageSistema.TIPO_VEHICULO_VALUE_CARRO)
+	                .withTipovehiculo(RespuestaSistema.TIPO_VEHICULO_VALUE_CARRO)
 	                .withDiallegada(cal.getTime());
 
-	        Registro registro = registrar.build();
+	        RegistroVehiculo registroVehiculo = registrar.build();
 
-	        CrearRegistro crearRegistro = new CrearRegistro(puertoRepositorioRegistro);
-	        ServicioExisteRegistro servicioExisteRegistro = new ServicioExisteRegistro(puertoRepositorioRegistro);
-	        when(puertoRepositorioRegistro.findByPlaca(registro.getPlaca())).thenReturn(registro);
+	        ServicioCrearRegistro servicioCrearRegistro = new ServicioCrearRegistro(puertoRepositorioRegistro);
+	        ServicioSalidaRegistro servicioSalidaRegistro = new ServicioSalidaRegistro(puertoRepositorioRegistro);
+	        when(puertoRepositorioRegistro.findByPlaca(registroVehiculo.getPlaca())).thenReturn(registroVehiculo);
 
 	        //Act
-	        servicioExisteRegistro.salida(registro.getPlaca());
+	        servicioSalidaRegistro.salida(registroVehiculo.getPlaca());
 
 	        //Assert
-	        assertEquals((valorHora * hora),registro.getValor(),0);
+	        assertEquals((valorHora * hora),registroVehiculo.getValor(),0);
 
 	    }
 
@@ -141,21 +141,21 @@ public class ServicioTest {
 	        cal.set(Calendar.HOUR, cal.get(Calendar.HOUR) - hora);
 
 	        RegistroTestDataBuilder registrar = new RegistroTestDataBuilder()
-	                .withTipovehiculo(MensageSistema.TIPO_VEHICULO_VALUE_MOTO)
+	                .withTipovehiculo(RespuestaSistema.TIPO_VEHICULO_VALUE_MOTO)
 	                .withDiallegada(cal.getTime())
 	                .withCilindraje(500);
 
-	        Registro registro = registrar.build();
+	        RegistroVehiculo registroVehiculo = registrar.build();
 
-	        CrearRegistro crearRegistro = new CrearRegistro(puertoRepositorioRegistro);
-	        ServicioExisteRegistro servicioExisteRegistro = new ServicioExisteRegistro(puertoRepositorioRegistro);
-	        when(puertoRepositorioRegistro.findByPlaca(registro.getPlaca())).thenReturn(registro);
+	        ServicioCrearRegistro servicioCrearRegistro = new ServicioCrearRegistro(puertoRepositorioRegistro);
+	        ServicioSalidaRegistro servicioSalidaRegistro = new ServicioSalidaRegistro(puertoRepositorioRegistro);
+	        when(puertoRepositorioRegistro.findByPlaca(registroVehiculo.getPlaca())).thenReturn(registroVehiculo);
 
 	        //Act
-	        servicioExisteRegistro.salida(registro.getPlaca());
+	        servicioSalidaRegistro.salida(registroVehiculo.getPlaca());
 
 	        //Assert
-	        assertEquals((valorHora * hora),registro.getValor(),0);
+	        assertEquals((valorHora * hora),registroVehiculo.getValor(),0);
 
 	    }
 	 @Test
@@ -171,21 +171,21 @@ public class ServicioTest {
 	        cal.set(Calendar.HOUR, cal.get(Calendar.HOUR) - hora);
 
 	        RegistroTestDataBuilder registrar = new RegistroTestDataBuilder()
-	                .withTipovehiculo(MensageSistema.TIPO_VEHICULO_VALUE_MOTO)
+	                .withTipovehiculo(RespuestaSistema.TIPO_VEHICULO_VALUE_MOTO)
 	                .withDiallegada(cal.getTime())
 	                .withCilindraje(600);
 
-	        Registro registro = registrar.build();
+	        RegistroVehiculo registroVehiculo = registrar.build();
 
-	        CrearRegistro crearRegistro = new CrearRegistro(puertoRepositorioRegistro);
-	        ServicioExisteRegistro servicioExisteRegistro = new ServicioExisteRegistro(puertoRepositorioRegistro);
-	        when(puertoRepositorioRegistro.findByPlaca(registro.getPlaca())).thenReturn(registro);
+	        ServicioCrearRegistro servicioCrearRegistro = new ServicioCrearRegistro(puertoRepositorioRegistro);
+	        ServicioSalidaRegistro servicioSalidaRegistro = new ServicioSalidaRegistro(puertoRepositorioRegistro);
+	        when(puertoRepositorioRegistro.findByPlaca(registroVehiculo.getPlaca())).thenReturn(registroVehiculo);
 
 	        //Act
-	        servicioExisteRegistro.salida(registro.getPlaca());
+	        servicioSalidaRegistro.salida(registroVehiculo.getPlaca());
 
 	        //Assert
-	        assertEquals((hora*valorHora)+valorAdicional,registro.getValor(),0);
+	        assertEquals((hora*valorHora)+valorAdicional,registroVehiculo.getValor(),0);
 
 	    }
 
@@ -201,20 +201,20 @@ public class ServicioTest {
 	        cal.set(Calendar.HOUR, cal.get(Calendar.HOUR) - hora);
 
 	        RegistroTestDataBuilder registrar = new RegistroTestDataBuilder()
-	                .withTipovehiculo(MensageSistema.TIPO_VEHICULO_VALUE_CARRO)
+	                .withTipovehiculo(RespuestaSistema.TIPO_VEHICULO_VALUE_CARRO)
 	                .withDiallegada(cal.getTime());
 
-	        Registro registro = registrar.build();
+	        RegistroVehiculo registroVehiculo = registrar.build();
 
-	        CrearRegistro crearRegistro = new CrearRegistro(puertoRepositorioRegistro);
-	        ServicioExisteRegistro servicioExisteRegistro = new ServicioExisteRegistro(puertoRepositorioRegistro);
-	        when(puertoRepositorioRegistro.findByPlaca(registro.getPlaca())).thenReturn(registro);
+	        ServicioCrearRegistro servicioCrearRegistro = new ServicioCrearRegistro(puertoRepositorioRegistro);
+	        ServicioSalidaRegistro servicioSalidaRegistro = new ServicioSalidaRegistro(puertoRepositorioRegistro);
+	        when(puertoRepositorioRegistro.findByPlaca(registroVehiculo.getPlaca())).thenReturn(registroVehiculo);
 
 	        //Act
-	        servicioExisteRegistro.salida(registro.getPlaca());
+	        servicioSalidaRegistro.salida(registroVehiculo.getPlaca());
 
 	        //Assert
-	        assertEquals(valorDia,registro.getValor(),0);
+	        assertEquals(valorDia,registroVehiculo.getValor(),0);
 
 	    }
 	 
@@ -232,21 +232,21 @@ public class ServicioTest {
 	        cal.set(Calendar.HOUR, cal.get(Calendar.HOUR) - hora);
 
 	        RegistroTestDataBuilder registrar = new RegistroTestDataBuilder()
-	                .withTipovehiculo(MensageSistema.TIPO_VEHICULO_VALUE_MOTO)
+	                .withTipovehiculo(RespuestaSistema.TIPO_VEHICULO_VALUE_MOTO)
 	                .withDiallegada(cal.getTime())
 	                .withCilindraje(600);
 
-	        Registro registro = registrar.build();
+	        RegistroVehiculo registroVehiculo = registrar.build();
 
-	        CrearRegistro crearRegistro = new CrearRegistro(puertoRepositorioRegistro);
-	        ServicioExisteRegistro servicioExisteRegistro = new ServicioExisteRegistro(puertoRepositorioRegistro);
-	        when(puertoRepositorioRegistro.findByPlaca(registro.getPlaca())).thenReturn(registro);
+	        ServicioCrearRegistro servicioCrearRegistro = new ServicioCrearRegistro(puertoRepositorioRegistro);
+	        ServicioSalidaRegistro servicioSalidaRegistro = new ServicioSalidaRegistro(puertoRepositorioRegistro);
+	        when(puertoRepositorioRegistro.findByPlaca(registroVehiculo.getPlaca())).thenReturn(registroVehiculo);
 
 	        //Act
-	        servicioExisteRegistro.salida(registro.getPlaca());
+	        servicioSalidaRegistro.salida(registroVehiculo.getPlaca());
 
 	        //Assert
-	        assertEquals(valorDia + valarAdicional,registro.getValor(),0);
+	        assertEquals(valorDia + valarAdicional,registroVehiculo.getValor(),0);
 
 	    }
 	 
@@ -262,21 +262,21 @@ public class ServicioTest {
 	        cal.set(Calendar.HOUR, cal.get(Calendar.HOUR) - hora);
 
 	        RegistroTestDataBuilder registrar = new RegistroTestDataBuilder()
-	        		.withTipovehiculo(MensageSistema.TIPO_VEHICULO_VALUE_MOTO)
+	        		.withTipovehiculo(RespuestaSistema.TIPO_VEHICULO_VALUE_MOTO)
 	                .withDiallegada(cal.getTime())
 	                .withCilindraje(500);
 
-	        Registro registro = registrar.build();
+	        RegistroVehiculo registroVehiculo = registrar.build();
 
-	        CrearRegistro crearRegistro = new CrearRegistro(puertoRepositorioRegistro);
-	        ServicioExisteRegistro servicioExisteRegistro = new ServicioExisteRegistro(puertoRepositorioRegistro);
-	        when(puertoRepositorioRegistro.findByPlaca(registro.getPlaca())).thenReturn(registro);
+	        ServicioCrearRegistro servicioCrearRegistro = new ServicioCrearRegistro(puertoRepositorioRegistro);
+	        ServicioSalidaRegistro servicioSalidaRegistro = new ServicioSalidaRegistro(puertoRepositorioRegistro);
+	        when(puertoRepositorioRegistro.findByPlaca(registroVehiculo.getPlaca())).thenReturn(registroVehiculo);
 
 	        //Act
-	        servicioExisteRegistro.salida(registro.getPlaca());
+	        servicioSalidaRegistro.salida(registroVehiculo.getPlaca());
 
 	        //Assert
-	        assertEquals(valorDia,registro.getValor(),0);
+	        assertEquals(valorDia,registroVehiculo.getValor(),0);
 
 	    }
 	 
@@ -295,21 +295,21 @@ public class ServicioTest {
 	        cal.set(Calendar.HOUR, cal.get(Calendar.HOUR) - hora);
 
 	        RegistroTestDataBuilder registrar = new RegistroTestDataBuilder()
-	                .withTipovehiculo(MensageSistema.TIPO_VEHICULO_VALUE_CARRO)
+	                .withTipovehiculo(RespuestaSistema.TIPO_VEHICULO_VALUE_CARRO)
 	                .withDiallegada(cal.getTime());
 
-	        Registro registro = registrar.build();
+	        RegistroVehiculo registroVehiculo = registrar.build();
 
-	        CrearRegistro crearRegistro = new CrearRegistro(puertoRepositorioRegistro);
-	        ServicioExisteRegistro servicioExisteRegistro = new ServicioExisteRegistro(puertoRepositorioRegistro);
-	        when(puertoRepositorioRegistro.findByPlaca(registro.getPlaca())).thenReturn(registro);
+	        ServicioCrearRegistro servicioCrearRegistro = new ServicioCrearRegistro(puertoRepositorioRegistro);
+	        ServicioSalidaRegistro servicioSalidaRegistro = new ServicioSalidaRegistro(puertoRepositorioRegistro);
+	        when(puertoRepositorioRegistro.findByPlaca(registroVehiculo.getPlaca())).thenReturn(registroVehiculo);
 
 	        //Act
-	        servicioExisteRegistro.salida(registro.getPlaca());
+	        servicioSalidaRegistro.salida(registroVehiculo.getPlaca());
 
 	        //Assert
 	       
-	        assertEquals((valorHora * 3) + valorDia,registro.getValor(),0);
+	        assertEquals((valorHora * 3) + valorDia,registroVehiculo.getValor(),0);
 
 	    }
 	  
@@ -328,21 +328,21 @@ public class ServicioTest {
 	        cal.set(Calendar.HOUR, cal.get(Calendar.HOUR) - hour);
 
 	        RegistroTestDataBuilder registrar = new RegistroTestDataBuilder()
-	                .withTipovehiculo(MensageSistema.TIPO_VEHICULO_VALUE_MOTO)
+	                .withTipovehiculo(RespuestaSistema.TIPO_VEHICULO_VALUE_MOTO)
 	                .withDiallegada(cal.getTime())
 	                .withCilindraje(400);
 
-	        Registro registro = registrar.build();
+	        RegistroVehiculo registroVehiculo = registrar.build();
 
-	        CrearRegistro crearRegistro = new CrearRegistro(puertoRepositorioRegistro);
-	        ServicioExisteRegistro servicioExisteRegistro = new ServicioExisteRegistro(puertoRepositorioRegistro);
-	        when(puertoRepositorioRegistro.findByPlaca(registro.getPlaca())).thenReturn(registro);
+	        ServicioCrearRegistro servicioCrearRegistro = new ServicioCrearRegistro(puertoRepositorioRegistro);
+	        ServicioSalidaRegistro servicioSalidaRegistro = new ServicioSalidaRegistro(puertoRepositorioRegistro);
+	        when(puertoRepositorioRegistro.findByPlaca(registroVehiculo.getPlaca())).thenReturn(registroVehiculo);
 
 	        //Act
-	        servicioExisteRegistro.salida(registro.getPlaca());
+	        servicioSalidaRegistro.salida(registroVehiculo.getPlaca());
 
 	        //Assert
-	        assertEquals((valorHora * 3) + valorDia,registro.getValor(),0);
+	        assertEquals((valorHora * 3) + valorDia,registroVehiculo.getValor(),0);
 
 	    }
 	  
@@ -356,37 +356,37 @@ public class ServicioTest {
 	
 	@Test
 	 public void  EstacionamientoSinEspacioPruebaCarro(){
-		 RegistroTestDataBuilder registrar = new RegistroTestDataBuilder().withTipovehiculo(MensageSistema.TIPO_VEHICULO_VALUE_CARRO);
+		 RegistroTestDataBuilder registrar = new RegistroTestDataBuilder().withTipovehiculo(RespuestaSistema.TIPO_VEHICULO_VALUE_CARRO);
 		 
-		 Registro  registro = registrar.build();
+		 RegistroVehiculo  registroVehiculo = registrar.build();
 		 
-		 CrearRegistro crearRegistro = new  CrearRegistro(puertoRepositorioRegistro);
+		 ServicioCrearRegistro servicioCrearRegistro = new  ServicioCrearRegistro(puertoRepositorioRegistro);
 		 
-		 when(puertoRepositorioRegistro.cantidadVehiculo(MensageSistema.TIPO_VEHICULO_VALUE_CARRO)).thenReturn(20);
+		 when(puertoRepositorioRegistro.cantidadVehiculo(RespuestaSistema.TIPO_VEHICULO_VALUE_CARRO)).thenReturn(20);
 	 
 		 try {
-			 crearRegistro.EntradaEstabelcida(registro);;
+			 servicioCrearRegistro.EntradaEstabelcida(registroVehiculo);;
 	            fail();
 	        }catch (ExcepcionNoEspacioTipoVehiculo ex){
 	            // Assert
-	            assertEquals(String.format(MensageSistema.MESAJES_NO_HAY_ESPACIO_DISPONIBLE, MensageSistema.TIPO_VEHICULO_VALUE_CARRO), ex.getMessage());
+	            assertEquals(String.format(RespuestaSistema.MESAJES_NO_HAY_ESPACIO_DISPONIBLE, RespuestaSistema.TIPO_VEHICULO_VALUE_CARRO), ex.getMessage());
 	        }
 	    }
 	 
 	@Test
 	 public void AparcamientoSinEspacioPruebaMotos() {
-		 RegistroTestDataBuilder  registrar = new RegistroTestDataBuilder().withTipovehiculo(MensageSistema.TIPO_VEHICULO_VALUE_MOTO).withCilindraje(500);
+		 RegistroTestDataBuilder  registrar = new RegistroTestDataBuilder().withTipovehiculo(RespuestaSistema.TIPO_VEHICULO_VALUE_MOTO).withCilindraje(500);
 		 
-		 Registro registro= registrar.build();
-		 CrearRegistro crearRegistro = new  CrearRegistro(puertoRepositorioRegistro);
-		 when(puertoRepositorioRegistro.cantidadVehiculo(MensageSistema.TIPO_VEHICULO_VALUE_MOTO)).thenReturn(10);
+		 RegistroVehiculo registroVehiculo= registrar.build();
+		 ServicioCrearRegistro servicioCrearRegistro = new  ServicioCrearRegistro(puertoRepositorioRegistro);
+		 when(puertoRepositorioRegistro.cantidadVehiculo(RespuestaSistema.TIPO_VEHICULO_VALUE_MOTO)).thenReturn(10);
 		 
 		 try {
-			 crearRegistro.EntradaEstabelcida(registro);;
+			 servicioCrearRegistro.EntradaEstabelcida(registroVehiculo);;
 	            //fail();
 	        }catch (ExcepcionNoEspacioTipoVehiculo ex){
 	            // Assert
-	            assertEquals(String.format(MensageSistema.MESAJES_NO_HAY_ESPACIO_DISPONIBLE, MensageSistema.TIPO_VEHICULO_VALUE_MOTO), ex.getMessage());
+	            assertEquals(String.format(RespuestaSistema.MESAJES_NO_HAY_ESPACIO_DISPONIBLE, RespuestaSistema.TIPO_VEHICULO_VALUE_MOTO), ex.getMessage());
 	        } 
 	 }
 	
@@ -394,15 +394,15 @@ public class ServicioTest {
 	public void NodejesEntrarAlosVehiculoPorA() {
 		 Calendar dateArrival =Calendar.getInstance();
 		 RegistroTestDataBuilder  registrar = new RegistroTestDataBuilder().withPlaca("B123").withDiallegada(dateArrival.getTime());
-		 Registro registro= registrar.build();
-		 CrearRegistro crearRegistro = new  CrearRegistro(puertoRepositorioRegistro);
+		 RegistroVehiculo registroVehiculo= registrar.build();
+		 ServicioCrearRegistro servicioCrearRegistro = new  ServicioCrearRegistro(puertoRepositorioRegistro);
 		 
 		 try {
-			 crearRegistro.EntradaEstabelcida(registro);;
+			 servicioCrearRegistro.EntradaEstabelcida(registroVehiculo);;
 	            //fail();
 	        }catch (ExcepcionLicenciaLugarFecha ex){
 	            // Assert
-	            assertEquals(String.format(MensageSistema.MENSAJES_DIAS_NO_PERMITIDO), ex.getMessage());
+	            assertEquals(String.format(RespuestaSistema.MENSAJES_DIAS_NO_PERMITIDO), ex.getMessage());
 	        } 
 		 
 	}

@@ -2,17 +2,15 @@ package co.com.ceiba.adnparqueadero.parqueadero.infraestructura.repositorio;
 
 import java.util.List;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
-import co.com.ceiba.adnparqueadero.parqueadero.dominio.modelo.Registro;
 import co.com.ceiba.adnparqueadero.parqueadero.infraestructura.entida.RegistroEntida;
 
 
 
-public interface IRegistroEntidadRepoSitorio extends  CrudRepository<RegistroEntida, Integer>{
+public interface RepositorioRegistroEntidad extends  CrudRepository<RegistroEntida, Integer>{
 	
 	
 	@Query("SELECT COUNT(idvehiculo) FROM RegistroEntida r WHERE r.tipovehiculo = :tipovehiculo AND r.diasalida IS NULL")

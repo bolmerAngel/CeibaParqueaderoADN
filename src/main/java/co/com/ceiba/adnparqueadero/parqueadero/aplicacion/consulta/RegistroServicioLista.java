@@ -2,8 +2,7 @@ package co.com.ceiba.adnparqueadero.parqueadero.aplicacion.consulta;
 
 import java.util.List;
 
-import co.com.ceiba.adnparqueadero.parqueadero.dominio.modelo.Registro;
-import co.com.ceiba.adnparqueadero.parqueadero.dominio.puerto.IRepositorioRegistro;
+import co.com.ceiba.adnparqueadero.parqueadero.dominio.modelo.RegistroVehiculo;
 import co.com.ceiba.adnparqueadero.parqueadero.dominio.servicio.ServicioListRegistro;
 
 
@@ -15,7 +14,7 @@ public class  RegistroServicioLista {
 		this. repositorioRegistro= repositorioRegistro;
 					
 	}
-	 public List<Registro> listRegister() {
+	 public List<RegistroVehiculo> listRegister() {
 	        return repositorioRegistro.listRegister();
 	    }
 	

@@ -1,4 +1,4 @@
-package co.com.ceiba.adnparqueadero.parqueadero.dominio.Excepciones;
+package co.com.ceiba.adnparqueadero.parqueadero.dominio.excepciones;
 
 public class ExcepcionCilindrajeNUmerico extends RuntimeException {
 	

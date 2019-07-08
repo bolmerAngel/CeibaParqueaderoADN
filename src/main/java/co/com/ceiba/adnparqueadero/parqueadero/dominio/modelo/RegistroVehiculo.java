@@ -2,14 +2,14 @@ package co.com.ceiba.adnparqueadero.parqueadero.dominio.modelo;
 
 import java.util.Date;
 
-import co.com.ceiba.adnparqueadero.parqueadero.dominio.mensajes.MensageSistema;
+import co.com.ceiba.adnparqueadero.parqueadero.dominio.protocoloRespuestasSistemas.RespuestaSistema;
 
 
 
-public class Registro {
+public class RegistroVehiculo {
 	
 	
-public  Registro(){
+public  RegistroVehiculo(){
 		
 	}
 	
@@ -37,19 +37,19 @@ public  Registro(){
 	private Integer valor;
 	private String tipovehiculo;
 	
-	public Registro(Integer idvehiculo, String placa, Date diallegada, Date diasalida, Integer cilindraje, Integer valor, String tipovehiculo) {
+	public RegistroVehiculo(Integer idvehiculo, String placa, Date diallegada, Date diasalida, Integer cilindraje, Integer valor, String tipovehiculo) {
 		
 		 ValidarArgumento.validarPlacaNoNull(placa,MESAGE_PLACA_REQUERIDO);
 		 
 		ValidarArgumento.validarTipovehiculoNoNull(tipovehiculo,MENSAGE_TIPO_VEHUCULO_REGUERIDO);
-		ValidarArgumento.validarTipovehiculoValorNoNull(tipovehiculo, MensageSistema.MENSAGE_TIPO_VEHICULO_INFORMACION_INCORRECTA);
+		ValidarArgumento.validarTipovehiculoValorNoNull(tipovehiculo, RespuestaSistema.MENSAGE_TIPO_VEHICULO_INFORMACION_INCORRECTA);
 		
-		if(!tipovehiculo.contains(MensageSistema.TIPO_VEHICULO_VALUE_CARRO) && !tipovehiculo.contains(MensageSistema.TIPO_VEHICULO_VALUE_MOTO)) {
-			ValidarArgumento.validarTipoInformacion(String.format(MensageSistema.MENSAGE_TIPO_VEHICULO_INFORMACION_INCORRECTA, tipovehiculo)  );
+		if(!tipovehiculo.contains(RespuestaSistema.TIPO_VEHICULO_VALUE_CARRO) && !tipovehiculo.contains(RespuestaSistema.TIPO_VEHICULO_VALUE_MOTO)) {
+			ValidarArgumento.validarTipoInformacion(String.format(RespuestaSistema.MENSAGE_TIPO_VEHICULO_INFORMACION_INCORRECTA, tipovehiculo)  );
 		
 		}
 		
-		if(tipovehiculo.equalsIgnoreCase(MensageSistema.TIPO_VEHICULO_VALUE_MOTO)){
+		if(tipovehiculo.equalsIgnoreCase(RespuestaSistema.TIPO_VEHICULO_VALUE_MOTO)){
 			ValidarArgumento.validarCilindrajeRequired(cilindraje, MESAGE_CILINDRAJE_REQUERIDO );
 			
 		}

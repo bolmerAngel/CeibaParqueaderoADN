@@ -2,20 +2,20 @@ package co.com.ceiba.adnparqueadero.parqueadero.dominio.servicio;
 
 import java.util.List;
 
-import co.com.ceiba.adnparqueadero.parqueadero.dominio.modelo.Registro;
-import co.com.ceiba.adnparqueadero.parqueadero.dominio.puerto.IRepositorioRegistro;
+import co.com.ceiba.adnparqueadero.parqueadero.dominio.modelo.RegistroVehiculo;
+import co.com.ceiba.adnparqueadero.parqueadero.dominio.puerto.PuertoRepositorioRegistro;
 
 
 public class ServicioListRegistro {
 	
-	 private IRepositorioRegistro  registraRepopsitorio;
+	 private PuertoRepositorioRegistro  registraRepopsitorio;
 	
 
-	 public ServicioListRegistro ( IRepositorioRegistro  registraRepopsitorio){
+	 public ServicioListRegistro ( PuertoRepositorioRegistro  registraRepopsitorio){
 	        this.registraRepopsitorio = registraRepopsitorio;
 	    }
 	 
-	 public List<Registro> listRegister() {
+	 public List<RegistroVehiculo> listRegister() {
 	        return registraRepopsitorio.list();
 	    }
 }

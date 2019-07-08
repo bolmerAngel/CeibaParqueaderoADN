@@ -1,8 +1,8 @@
 package co.com.ceiba.adnparqueadero.parqueadero.dominio.servicio.fabrica;
 
-import co.com.ceiba.adnparqueadero.parqueadero.dominio.modelo.Registro;
+import co.com.ceiba.adnparqueadero.parqueadero.dominio.modelo.RegistroVehiculo;
 
 public interface CobroEstacionamiento {
 
-	void establecerCarga(Registro registro);
+	void establecerCarga(RegistroVehiculo registroVehiculo);
 }

@@ -2,7 +2,7 @@ package co.com.ceiba.adnparqueadero.parqueadero.testdatabuilder;
 
 import java.util.Date;
 
-import co.com.ceiba.adnparqueadero.parqueadero.dominio.modelo.Registro;
+import co.com.ceiba.adnparqueadero.parqueadero.dominio.modelo.RegistroVehiculo;
 
 
 
@@ -63,8 +63,8 @@ public class RegistroTestDataBuilder {
 	
 	
 	
-	 public Registro build(){
-	        return new Registro ( idvehiculo,  placa,  diallegada, diasalida, cilindraje,  valor,  tipovehiculo);
+	 public RegistroVehiculo build(){
+	        return new RegistroVehiculo ( idvehiculo,  placa,  diallegada, diasalida, cilindraje,  valor,  tipovehiculo);
 	    }
 	
 	

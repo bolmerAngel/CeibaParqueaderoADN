@@ -1,8 +1,7 @@
 package co.com.ceiba.adnparqueadero.parqueadero.dominio.servicio.fabrica;
 
-import co.com.ceiba.adnparqueadero.parqueadero.dominio.Excepciones.ExcepcionTipovehiculoValorNoNull;
-import co.com.ceiba.adnparqueadero.parqueadero.dominio.mensajes.MensageSistema;
-import co.com.ceiba.adnparqueadero.parqueadero.dominio.modelo.Registro;
+import co.com.ceiba.adnparqueadero.parqueadero.dominio.excepciones.ExcepcionTipovehiculoValorNoNull;
+import co.com.ceiba.adnparqueadero.parqueadero.dominio.protocoloRespuestasSistemas.RespuestaSistema;
 
 
 public class CargaFabrica {
@@ -17,7 +16,7 @@ public class CargaFabrica {
 	            return  new CargarMoto();
 	        }
 		 else{
-	            throw new ExcepcionTipovehiculoValorNoNull(String.format(MensageSistema.MENSAGE_TIPO_VEHICULO_INFORMACION_INCORRECTA, tipovehiculo));
+	            throw new ExcepcionTipovehiculoValorNoNull(String.format(RespuestaSistema.MENSAGE_TIPO_VEHICULO_INFORMACION_INCORRECTA, tipovehiculo));
 	        }
 		
 		

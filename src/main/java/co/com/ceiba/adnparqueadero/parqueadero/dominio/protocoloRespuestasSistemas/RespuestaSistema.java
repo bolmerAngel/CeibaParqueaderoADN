@@ -1,6 +1,6 @@
-package co.com.ceiba.adnparqueadero.parqueadero.dominio.mensajes;
+package co.com.ceiba.adnparqueadero.parqueadero.dominio.protocoloRespuestasSistemas;
 
-public class MensageSistema {
+public class RespuestaSistema {
 
 	
 	public static final String MENSAJES_PLACAS_RESTRINGIDAS_QUE_COMENZAN_CON_LA_LETRA = "A";
@@ -20,5 +20,5 @@ public class MensageSistema {
     public static final int TIPO_VEHICULO_MAXIMO_CARRO = 20;
     public static final int TIPO_VEHICULO_MAXIMO_MOTO = 10;
 
-    private MensageSistema() {}
+    private RespuestaSistema() {}
 }
