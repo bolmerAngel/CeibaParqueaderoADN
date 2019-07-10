@@ -45,7 +45,7 @@ public class ServicioTest {
 
 		 ServicioCrearRegistro  servicioCrearRegistro  = new ServicioCrearRegistro (puertoRepositorioRegistro);
 
-	     when(puertoRepositorioRegistro.Regitrar(registroVehiculo)).thenReturn(registroVehiculo);
+	     when(puertoRepositorioRegistro.regitrar(registroVehiculo)).thenReturn(registroVehiculo);
 
 	        //Act
 	        RegistroVehiculo registerCopia = servicioCrearRegistro.entradaEstabelcida(registroVehiculo);
@@ -69,7 +69,7 @@ public class ServicioTest {
 
 	        ServicioCrearRegistro servicioCrearRegistro = new ServicioCrearRegistro(puertoRepositorioRegistro);
 
-	        when(puertoRepositorioRegistro.Regitrar(registroVehiculo)).thenReturn(registroVehiculo);
+	        when(puertoRepositorioRegistro.regitrar(registroVehiculo)).thenReturn(registroVehiculo);
 
 	        //Act
 	        RegistroVehiculo registerCopia = servicioCrearRegistro.entradaEstabelcida(registroVehiculo);
@@ -88,7 +88,7 @@ public class ServicioTest {
 
 	        ServicioCrearRegistro servicioCrearRegistro = new ServicioCrearRegistro(puertoRepositorioRegistro);
 
-	        when(puertoRepositorioRegistro.Regitrar(registroVehiculo)).thenReturn(registroVehiculo);
+	        when(puertoRepositorioRegistro.regitrar(registroVehiculo)).thenReturn(registroVehiculo);
 
 	        //Act
 	        try {

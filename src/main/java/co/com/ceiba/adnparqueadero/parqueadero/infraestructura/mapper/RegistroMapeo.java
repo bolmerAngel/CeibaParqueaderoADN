@@ -36,10 +36,10 @@ public class RegistroMapeo {
 	        return registroEntida;
 	    }
 	  
-	  public List<RegistroVehiculo> listConvertToDomain(List<RegistroEntida> ListRegistroEntida) {
+	  public List<RegistroVehiculo> listConvertToDomain(List<RegistroEntida> listRegistroEntida) {
 	        final List<RegistroVehiculo> listRegistro = new ArrayList<>();
 	        
-	        ListRegistroEntida.forEach(registroEntida -> listRegistro.add(new RegistroVehiculo(registroEntida.getIdvehiculo(),registroEntida.getPlaca(),registroEntida.getDiallegada(),
+	        listRegistroEntida.forEach(registroEntida -> listRegistro.add(new RegistroVehiculo(registroEntida.getIdvehiculo(),registroEntida.getPlaca(),registroEntida.getDiallegada(),
         			registroEntida.getDiasalida(),registroEntida.getCilindraje(), registroEntida.getValor(),registroEntida.getTipovehiculo())));
 	        
 			return listRegistro;

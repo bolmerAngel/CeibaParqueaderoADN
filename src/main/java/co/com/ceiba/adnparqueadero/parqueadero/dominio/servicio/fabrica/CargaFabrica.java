@@ -4,7 +4,7 @@ import co.com.ceiba.adnparqueadero.parqueadero.dominio.excepciones.ExcepcionTipo
 import co.com.ceiba.adnparqueadero.parqueadero.dominio.protocoloRespuestasSistemas.RespuestaSistema;
 
 
-public class CargaFabrica {
+public final  class CargaFabrica {
 	
 	private CargaFabrica() {}
 	

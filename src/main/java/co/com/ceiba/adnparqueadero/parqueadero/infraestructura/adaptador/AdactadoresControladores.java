@@ -26,7 +26,7 @@ public class AdactadoresControladores implements PuertoRepositorioRegistro {
 	
 
 	@Override
-	public RegistroVehiculo Regitrar(RegistroVehiculo registroVehiculo) {
+	public RegistroVehiculo regitrar(RegistroVehiculo registroVehiculo) {
 		RegistroEntida registroEntidad = registroEntidadRepositorio.save(registroMapeo.convertToEntity(registroVehiculo));
         return registroMapeo.convertToDomain(registroEntidad);
 	}
@@ -60,7 +60,7 @@ public class AdactadoresControladores implements PuertoRepositorioRegistro {
 
 	@Override
 	public int countVehicleType(String tipovehiculo) {
-		// TODO Auto-generated method stub
+		
 		return 0;
 	}
 

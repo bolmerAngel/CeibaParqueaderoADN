@@ -6,7 +6,7 @@ import co.com.ceiba.adnparqueadero.parqueadero.dominio.excepciones.*;
 
 public class ValidarArgumento {
 
-	public ValidarArgumento() {}
+
 
 	public static void validarPlacaNoNull(String placa, String message) {
 		if(placa == null) {

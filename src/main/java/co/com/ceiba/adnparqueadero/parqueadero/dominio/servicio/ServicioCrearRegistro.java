@@ -22,7 +22,7 @@ public class ServicioCrearRegistro {
 		validacionAnterior(registroVehiculo);
 		validacinCantidadTipoVehiculo(registroVehiculo.getTipovehiculo());
 		validarLicenciaLugarFechaDia(registroVehiculo.getPlaca(), registroVehiculo.getDiallegada());
-	    return registroRepositorio.Regitrar(registroVehiculo);
+	    return registroRepositorio.regitrar(registroVehiculo);
 
 	}
 

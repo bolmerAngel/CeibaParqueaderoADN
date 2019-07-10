@@ -6,7 +6,7 @@ import co.com.ceiba.adnparqueadero.parqueadero.dominio.modelo.RegistroVehiculo;
 
 public interface PuertoRepositorioRegistro {
 	
-	RegistroVehiculo Regitrar(RegistroVehiculo registroVehiculo);
+	RegistroVehiculo regitrar(RegistroVehiculo registroVehiculo);
 	
 	int cantidadVehiculo(String tipovehiculo);
 	

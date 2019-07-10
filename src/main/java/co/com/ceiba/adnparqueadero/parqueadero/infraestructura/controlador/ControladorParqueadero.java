@@ -33,14 +33,12 @@ public class ControladorParqueadero {
 	}
 
 	@GetMapping
-	public List<RegistroVehiculo> List() {
+	public List<RegistroVehiculo> lista() {
 		return this.servicioListRegistro.listaRegistrarse();
 
 	}
 	
-	//public listar<RegistroVehiculo> listar(){
-		
-	//}
+	
 
 	@PostMapping
 	public RegistroVehiculo getinformacionVehiculo(@RequestBody RegistroComando registroComando) {

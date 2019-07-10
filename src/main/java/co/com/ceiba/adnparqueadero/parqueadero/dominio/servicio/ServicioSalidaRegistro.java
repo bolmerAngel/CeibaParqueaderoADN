@@ -27,14 +27,14 @@ public class ServicioSalidaRegistro {
 	        if (registroVehiculo == null) {
 	            throw new ExcepcionNoExisteRegistro(RespuestaSistema.MESAJE_VEHICULO_NO_ENCONTRADO);
 	        }
-	        Cobrar(registroVehiculo);
-	        registroRepositorio.Regitrar(registroVehiculo);
+	        cobrar(registroVehiculo);
+	        registroRepositorio.regitrar(registroVehiculo);
 	    }
 	 
-	 private void Cobrar(RegistroVehiculo registroVehiculo) {
+	 private void cobrar(RegistroVehiculo registroVehiculo) {
 		    registroVehiculo.setDiasalida(new Date());
-	        CobroEstacionamiento ParqueCarga = CargaFabrica.getInstance(registroVehiculo.getTipovehiculo());
-	        ParqueCarga.establecerCarga(registroVehiculo);
+	        CobroEstacionamiento parqueCarga = CargaFabrica.getInstance(registroVehiculo.getTipovehiculo());
+	        parqueCarga.establecerCarga(registroVehiculo);
 	        
 	    }
 
