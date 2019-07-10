@@ -15,7 +15,7 @@ public class  RegistroServicioLista {
 					
 	}
 	 public List<RegistroVehiculo> listRegister() {
-	        return repositorioRegistro.listRegister();
+	        return repositorioRegistro.listaRegistrarse();
 	    }
 	
 }

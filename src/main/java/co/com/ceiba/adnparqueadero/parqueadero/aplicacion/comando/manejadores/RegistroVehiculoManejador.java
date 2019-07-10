@@ -14,11 +14,12 @@ public class RegistroVehiculoManejador {
 		this.servicioCrearRegistro = servicioCrearRegistro;
 	}
 
-	public RegistroVehiculo EntradaEstabelcida(RegistroComando registroComando) {
+	public RegistroVehiculo entradaEstabelcida(RegistroComando registroComando) {
 		RegistroVehiculo registroVehiculo = new RegistroVehiculo(registroComando.getIdvehiculo(), registroComando.getPlaca(),
 				registroComando.getDiallegada(), registroComando.getDiasalida(), registroComando.getCilindraje(),
 				registroComando.getValor(), registroComando.getTipovehiculo());
 		registroVehiculo.setDiallegada(new Date());
-		return this.servicioCrearRegistro.EntradaEstabelcida(registroVehiculo);
+		return this.servicioCrearRegistro.entradaEstabelcida(registroVehiculo);
 	}
 }
+

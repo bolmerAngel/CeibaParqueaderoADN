@@ -23,7 +23,7 @@ public interface RepositorioRegistroEntidad extends  CrudRepository<RegistroEnti
 	    List<RegistroEntida> listAll();
 	   
 	   @Query("SELECT CASE WHEN COUNT(r.idvehiculo) > 0 THEN true ELSE false END FROM RegistroEntida r WHERE r.placa = :placa AND r.diasalida IS NULL")
-	    boolean ExisteRegistro(@Param("placa") String placa);
+	    boolean salirRegistro(@Param("placa") String placa);
 
 
 }

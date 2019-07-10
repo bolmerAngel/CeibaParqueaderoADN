@@ -43,7 +43,7 @@ public class RegistroComandoTestDataBuilder {
 	        this.diasalida = diasalida;
 	        return this;
 	    }
-	  public RegistroComandoTestDataBuilder withCilndraje( Integer cilindraje ) {
+	  public RegistroComandoTestDataBuilder withCilindraje( Integer cilindraje ) {
 	        this.cilindraje = cilindraje;
 	        return this;
 	    }

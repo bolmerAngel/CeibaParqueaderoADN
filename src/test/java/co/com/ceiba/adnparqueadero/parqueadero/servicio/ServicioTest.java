@@ -48,7 +48,7 @@ public class ServicioTest {
 	     when(puertoRepositorioRegistro.Regitrar(registroVehiculo)).thenReturn(registroVehiculo);
 
 	        //Act
-	        RegistroVehiculo registerCopia = servicioCrearRegistro.EntradaEstabelcida(registroVehiculo);
+	        RegistroVehiculo registerCopia = servicioCrearRegistro.entradaEstabelcida(registroVehiculo);
 
 	        //Assert
 	        assertEquals(registerCopia.getIdvehiculo(),registroVehiculo.getIdvehiculo());
@@ -72,7 +72,7 @@ public class ServicioTest {
 	        when(puertoRepositorioRegistro.Regitrar(registroVehiculo)).thenReturn(registroVehiculo);
 
 	        //Act
-	        RegistroVehiculo registerCopia = servicioCrearRegistro.EntradaEstabelcida(registroVehiculo);
+	        RegistroVehiculo registerCopia = servicioCrearRegistro.entradaEstabelcida(registroVehiculo);
 
 	        //Assert
 	        assertEquals(registerCopia.getIdvehiculo(),registroVehiculo.getIdvehiculo());
@@ -92,7 +92,7 @@ public class ServicioTest {
 
 	        //Act
 	        try {
-	        	 servicioCrearRegistro.EntradaEstabelcida(registroVehiculo);
+	        	 servicioCrearRegistro.entradaEstabelcida(registroVehiculo);
 	        }catch (ExcepcionDuplicada ex){
 	            // Assert.
 	            assertEquals(RespuestaSistema.MENSAJE_YA_EXISTE_VEHICULO, ex.getMessage());
@@ -345,14 +345,6 @@ public class ServicioTest {
 	        assertEquals((valorHora * 3) + valorDia,registroVehiculo.getValor(),0);
 
 	    }
-	  
-	    
-	    
-	    
-	    
-	  
-	
-	
 	
 	@Test
 	 public void  EstacionamientoSinEspacioPruebaCarro(){
@@ -365,7 +357,7 @@ public class ServicioTest {
 		 when(puertoRepositorioRegistro.cantidadVehiculo(RespuestaSistema.TIPO_VEHICULO_VALUE_CARRO)).thenReturn(20);
 	 
 		 try {
-			 servicioCrearRegistro.EntradaEstabelcida(registroVehiculo);;
+			 servicioCrearRegistro.entradaEstabelcida(registroVehiculo);;
 	            fail();
 	        }catch (ExcepcionNoEspacioTipoVehiculo ex){
 	            // Assert
@@ -382,7 +374,7 @@ public class ServicioTest {
 		 when(puertoRepositorioRegistro.cantidadVehiculo(RespuestaSistema.TIPO_VEHICULO_VALUE_MOTO)).thenReturn(10);
 		 
 		 try {
-			 servicioCrearRegistro.EntradaEstabelcida(registroVehiculo);;
+			 servicioCrearRegistro.entradaEstabelcida(registroVehiculo);;
 	            //fail();
 	        }catch (ExcepcionNoEspacioTipoVehiculo ex){
 	            // Assert
@@ -398,7 +390,7 @@ public class ServicioTest {
 		 ServicioCrearRegistro servicioCrearRegistro = new  ServicioCrearRegistro(puertoRepositorioRegistro);
 		 
 		 try {
-			 servicioCrearRegistro.EntradaEstabelcida(registroVehiculo);;
+			 servicioCrearRegistro.entradaEstabelcida(registroVehiculo);;
 	            //fail();
 	        }catch (ExcepcionLicenciaLugarFecha ex){
 	            // Assert

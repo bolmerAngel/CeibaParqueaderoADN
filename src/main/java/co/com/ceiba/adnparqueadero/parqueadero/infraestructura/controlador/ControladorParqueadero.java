@@ -34,17 +34,21 @@ public class ControladorParqueadero {
 
 	@GetMapping
 	public List<RegistroVehiculo> List() {
-		return this.servicioListRegistro.listRegister();
+		return this.servicioListRegistro.listaRegistrarse();
 
 	}
+	
+	//public listar<RegistroVehiculo> listar(){
+		
+	//}
 
 	@PostMapping
-	public RegistroVehiculo getInformacion(@RequestBody RegistroComando registroComando) {
-		return this.registroVehiculoManejador.EntradaEstabelcida(registroComando);
+	public RegistroVehiculo getinformacionVehiculo(@RequestBody RegistroComando registroComando) {
+		return this.registroVehiculoManejador.entradaEstabelcida(registroComando);
 	}
 
 	@PutMapping("/{placa}")
-	public void getOut(@PathVariable("placa") String placa) {
+	public void getAfuera(@PathVariable("placa") String placa) {
 		this.salidaVehiculoManejador.salida(placa);
 	}
 

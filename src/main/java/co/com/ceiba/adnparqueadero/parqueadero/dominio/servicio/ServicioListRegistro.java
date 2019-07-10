@@ -15,7 +15,7 @@ public class ServicioListRegistro {
 	        this.registraRepopsitorio = registraRepopsitorio;
 	    }
 	 
-	 public List<RegistroVehiculo> listRegister() {
+	 public List<RegistroVehiculo>listaRegistrarse() {
 	        return registraRepopsitorio.list();
 	    }
 }

@@ -44,8 +44,8 @@ public class AdactadoresControladores implements PuertoRepositorioRegistro {
 	}
 
 	@Override
-	public boolean ExisteRegistro(RegistroVehiculo registroVehiculo) {
-		 return registroEntidadRepositorio.ExisteRegistro(registroVehiculo.getPlaca());
+	public boolean salirRegistro(RegistroVehiculo registroVehiculo) {
+		 return registroEntidadRepositorio.salirRegistro(registroVehiculo.getPlaca());
 	}
 
 	

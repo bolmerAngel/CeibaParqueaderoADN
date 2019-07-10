@@ -10,9 +10,9 @@ public interface PuertoRepositorioRegistro {
 	
 	int cantidadVehiculo(String tipovehiculo);
 	
-	List<RegistroVehiculo> list();
+	List <RegistroVehiculo> list();
 	
-	boolean  ExisteRegistro(RegistroVehiculo registroVehiculo);
+	boolean  salirRegistro(RegistroVehiculo registroVehiculo);
 
 	int countVehicleType(String tipovehiculo);
 	

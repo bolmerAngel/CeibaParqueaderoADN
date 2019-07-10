@@ -18,7 +18,7 @@ public class ServicioCrearRegistro {
 		this.registroRepositorio = registroRepositorio;
 	}
 
-	public RegistroVehiculo EntradaEstabelcida(RegistroVehiculo registroVehiculo) {
+	public RegistroVehiculo entradaEstabelcida(RegistroVehiculo registroVehiculo) {
 		validacionAnterior(registroVehiculo);
 		validacinCantidadTipoVehiculo(registroVehiculo.getTipovehiculo());
 		validarLicenciaLugarFechaDia(registroVehiculo.getPlaca(), registroVehiculo.getDiallegada());
@@ -28,8 +28,6 @@ public class ServicioCrearRegistro {
 
 	private void validarLicenciaLugarFechaDia(String placa, Date diallegada) {
 
-		System.out.println(diallegada);
-		// TODO Auto-generated method stub
 		Calendar calen = Calendar.getInstance();
 		calen.setTime(diallegada);
 
@@ -54,7 +52,7 @@ public class ServicioCrearRegistro {
 	}
 
 	private void validacionAnterior(RegistroVehiculo registroVehiculo) {
-		boolean exists = registroRepositorio.ExisteRegistro(registroVehiculo);
+		boolean exists = registroRepositorio.salirRegistro(registroVehiculo);
 		if (exists) {
 			throw new ExcepcionDuplicada(RespuestaSistema.MENSAJE_YA_EXISTE_VEHICULO);
 		}
