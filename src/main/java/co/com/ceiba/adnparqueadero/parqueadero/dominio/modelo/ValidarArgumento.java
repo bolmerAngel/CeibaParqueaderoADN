@@ -4,7 +4,7 @@ import co.com.ceiba.adnparqueadero.parqueadero.dominio.excepciones.*;
 
 
 
-public class ValidarArgumento {
+public final class ValidarArgumento {
 
 	private    ValidarArgumento() {}
 

@@ -9,7 +9,7 @@ public final  class CargaFabrica {
 	private CargaFabrica() {}
 	
 	 public static CargarCarro getInstance(String tipovehiculo) {
-		 if(tipovehiculo.equalsIgnoreCase("CARRO")){
+		 if(tipovehiculo.equals("CARRO")){
 	            return  new CargarCarro();
 	        }
 		 else if(tipovehiculo.equalsIgnoreCase("MOTO") ){
