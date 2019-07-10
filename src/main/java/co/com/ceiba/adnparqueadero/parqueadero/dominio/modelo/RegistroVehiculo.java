@@ -18,16 +18,9 @@ public  RegistroVehiculo(){
     private static final String MENSAGE_TIPO_VEHUCULO_REGUERIDO = "El tipo de vehiculo es un dato requerido.";
     
     private static final String MESAGE_CILINDRAJE_REQUERIDO = "El campo cilindraje es requerido.";
-   
-   // private static final String MENSAGE_VALOR_INCORECTO  = "El campo valor debe ser numerico.";
-    
-   
-    
+
     public static final String MENSAJES_PLACAS_RESTRINGIDAS_QUE_COMENZAN_CON_LA_LETRA = "A";
-    
-    
-    
-    
+
 
 	private Integer idvehiculo;
 	private String placa;
@@ -65,9 +58,6 @@ public  RegistroVehiculo(){
 		
 	}
 	
-		
-
-
 	/**
 	 * @return the id_vehiculo
 	 */
@@ -92,7 +82,6 @@ public  RegistroVehiculo(){
 	public void setPlaca(String placa) {
 		this.placa = placa;
 	}
-
 	/**
 	 * @return the hora_llegada
 	 */
@@ -117,14 +106,12 @@ public  RegistroVehiculo(){
 	public void setDiasalida(Date diasalida) {
 		this.diasalida = diasalida;
 	}
-
 	/**
 	 * @return the cilindraje
 	 */
 	public Integer getCilindraje() {
 		return cilindraje;
 	}
-
 	/**
 	 * @param cilindraje the cilindraje to set
 	 */
@@ -150,10 +137,10 @@ public  RegistroVehiculo(){
 		return tipovehiculo;
 	}
 	/**
-	 * @param tipo_vehiculo the tipo_vehiculo to set
+	 * @param tipovehiculo the tipo_vehiculo to set
 	 */
-	public void setTipovehiculo(String tipo_vehiculo) {
-		this.tipovehiculo = tipo_vehiculo;
+	public void setTipovehiculo(String tipovehiculo) {
+		this.tipovehiculo = tipovehiculo;
 	}
 	
 }

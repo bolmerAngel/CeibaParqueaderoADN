@@ -21,8 +21,8 @@ public class CargarMoto extends CargarCarro {
 	    	 double milisegundoMoto = (registroVehiculo.getDiasalida().getTime() - registroVehiculo.getDiallegada().getTime());
 	         double horaMoto = (milisegundoMoto/MILISEGUNDO_POR_HORA_MOTO);
 	         double minutoMoto = (milisegundoMoto/ MILISEGUNDO_POR_MINUTO_MOTO);
-	         long totalHoraMoto = (long) Math.round(horaMoto);
-	         long totalMinutoMoto = (long) Math.round(minutoMoto);
+	         double totalHoraMoto = (horaMoto);
+	         double totalMinutoMoto = (minutoMoto);
 	         int totalDiaMoto = (int)  totalHoraMoto /  HORAS_DEL_DIA_MOTO;
 	         int  totalHoranuevadiaMoto = (int) totalHoraMoto %  HORAS_DEL_DIA_MOTO;
 	    	 

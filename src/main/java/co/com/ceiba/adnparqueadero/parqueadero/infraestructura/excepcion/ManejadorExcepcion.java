@@ -41,7 +41,7 @@ public class ManejadorExcepcion {
 	    	 
 	    	 String nombre=excepcion.getClass().getSimpleName();
 	    	 String mensages= excepcion.getMensages();
-			Integer codigo= CODIGOS_ESTADO.get(nombre);
+	    	 Integer codigo= CODIGOS_ESTADO.get(nombre);
 			
 
 	        if (codigo != null) {

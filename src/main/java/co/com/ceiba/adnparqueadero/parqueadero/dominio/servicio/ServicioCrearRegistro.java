@@ -38,7 +38,7 @@ public class ServicioCrearRegistro {
 	}
 
 	private void validacinCantidadTipoVehiculo(String tipovehiculo) {
-		// TODO Auto-generated method stub
+	
 		int cantidadTipoVehiculo = registroRepositorio.cantidadVehiculo(tipovehiculo);
 
 		if ((tipovehiculo.contentEquals(RespuestaSistema.TIPO_VEHICULO_VALUE_CARRO)
@@ -52,8 +52,8 @@ public class ServicioCrearRegistro {
 	}
 
 	private void validacionAnterior(RegistroVehiculo registroVehiculo) {
-		boolean exists = registroRepositorio.salirRegistro(registroVehiculo);
-		if (exists) {
+		boolean salida = registroRepositorio.salirRegistro(registroVehiculo);
+		if (salida) {
 			throw new ExcepcionDuplicada(RespuestaSistema.MENSAJE_YA_EXISTE_VEHICULO);
 		}
 	}
