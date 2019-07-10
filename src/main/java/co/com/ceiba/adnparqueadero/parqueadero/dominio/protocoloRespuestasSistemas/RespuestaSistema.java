@@ -1,4 +1,4 @@
-package co.com.ceiba.adnparqueadero.parqueadero.dominio.protocoloRespuestasSistemas;
+package co.com.ceiba.adnparqueadero.parqueadero.dominio.protocolorespuestassistemas;
 
 public  final class RespuestaSistema {
 

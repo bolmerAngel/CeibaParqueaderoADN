@@ -4,7 +4,7 @@ import java.util.Date;
 
 import co.com.ceiba.adnparqueadero.parqueadero.dominio.excepciones.ExcepcionNoExisteRegistro;
 import co.com.ceiba.adnparqueadero.parqueadero.dominio.modelo.RegistroVehiculo;
-import co.com.ceiba.adnparqueadero.parqueadero.dominio.protocoloRespuestasSistemas.RespuestaSistema;
+import co.com.ceiba.adnparqueadero.parqueadero.dominio.protocolorespuestassistemas.RespuestaSistema;
 import co.com.ceiba.adnparqueadero.parqueadero.dominio.puerto.PuertoRepositorioRegistro;
 import co.com.ceiba.adnparqueadero.parqueadero.dominio.servicio.fabrica.CargaFabrica;
 import co.com.ceiba.adnparqueadero.parqueadero.dominio.servicio.fabrica.CobroEstacionamiento;

@@ -7,7 +7,7 @@ import co.com.ceiba.adnparqueadero.parqueadero.dominio.excepciones.ExcepcionDupl
 import co.com.ceiba.adnparqueadero.parqueadero.dominio.excepciones.ExcepcionLicenciaLugarFecha;
 import co.com.ceiba.adnparqueadero.parqueadero.dominio.excepciones.ExcepcionNoEspacioTipoVehiculo;
 import co.com.ceiba.adnparqueadero.parqueadero.dominio.modelo.RegistroVehiculo;
-import co.com.ceiba.adnparqueadero.parqueadero.dominio.protocoloRespuestasSistemas.RespuestaSistema;
+import co.com.ceiba.adnparqueadero.parqueadero.dominio.protocolorespuestassistemas.RespuestaSistema;
 import co.com.ceiba.adnparqueadero.parqueadero.dominio.puerto.PuertoRepositorioRegistro;
 
 public class ServicioCrearRegistro {

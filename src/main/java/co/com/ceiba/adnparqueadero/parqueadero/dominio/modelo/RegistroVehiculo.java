@@ -2,7 +2,7 @@ package co.com.ceiba.adnparqueadero.parqueadero.dominio.modelo;
 
 import java.util.Date;
 
-import co.com.ceiba.adnparqueadero.parqueadero.dominio.protocoloRespuestasSistemas.RespuestaSistema;
+import co.com.ceiba.adnparqueadero.parqueadero.dominio.protocolorespuestassistemas.RespuestaSistema;
 
 
 

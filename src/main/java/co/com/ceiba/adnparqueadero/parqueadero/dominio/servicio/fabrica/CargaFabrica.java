@@ -1,7 +1,7 @@
 package co.com.ceiba.adnparqueadero.parqueadero.dominio.servicio.fabrica;
 
 import co.com.ceiba.adnparqueadero.parqueadero.dominio.excepciones.ExcepcionTipovehiculoValorNoNull;
-import co.com.ceiba.adnparqueadero.parqueadero.dominio.protocoloRespuestasSistemas.RespuestaSistema;
+import co.com.ceiba.adnparqueadero.parqueadero.dominio.protocolorespuestassistemas.RespuestaSistema;
 
 
 public final  class CargaFabrica {
@@ -9,10 +9,10 @@ public final  class CargaFabrica {
 	private CargaFabrica() {}
 	
 	 public static CargarCarro getInstance(String tipovehiculo) {
-		 if(tipovehiculo.equals("CARRO")){
+		 if(tipovehiculo.equalsIgnoreCase("carro")){
 	            return  new CargarCarro();
 	        }
-		 else if(tipovehiculo.equalsIgnoreCase("MOTO") ){
+		 else if(tipovehiculo.equalsIgnoreCase("moto") ){
 	            return  new CargarMoto();
 	        }
 		 else{
