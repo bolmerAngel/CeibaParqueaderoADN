@@ -1,6 +1,6 @@
 package co.com.ceiba.adnparqueadero.parqueadero.dominio.protocoloRespuestasSistemas;
 
-public class RespuestaSistema {
+public  final class RespuestaSistema {
 
 	
 	public static final String MENSAJES_PLACAS_RESTRINGIDAS_QUE_COMENZAN_CON_LA_LETRA = "A";

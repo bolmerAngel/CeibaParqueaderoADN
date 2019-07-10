@@ -6,7 +6,7 @@ import co.com.ceiba.adnparqueadero.parqueadero.dominio.excepciones.*;
 
 public class ValidarArgumento {
 
-
+	private    ValidarArgumento() {}
 
 	public static void validarPlacaNoNull(String placa, String message) {
 		if(placa == null) {
@@ -42,10 +42,7 @@ public class ValidarArgumento {
     }
 
 
-	public static void validarLetraPlaca(String placa, String string) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 	}
 
 	
